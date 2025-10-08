@@ -1,0 +1,66 @@
+/* Primeiro Capítulo */
+
+#capitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.capitulo-layout {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.capitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+#banner1, #banner2 {
+    width: auto;
+    max-width: 350px;
+    height: 250px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--lightbeige);
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 32px;
+    padding: 20px;
+    box-shadow: 0 0 10px var(--antiquegold);
+    flex-shrink: 0;
+    margin: 0 auto;
+}
+
+.image-button {
+  background-color: var(--blackabsolut);
+  margin: 0;
+  padding: 0;
+} 
+
+#capa {
+    width: 100%; 
+    height: 100%;    
+    max-width: 400px;  
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px var(--antiquegold); 
+    border-radius: 8px; 
+}
+
+#capa:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 0 15px var(--lightbeige), 
+                0 0 25px var(--antiquegold); /* Adiciona um brilho extra */
+    cursor: pointer; 
+}

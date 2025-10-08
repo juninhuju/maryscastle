@@ -1,0 +1,40 @@
+/* Sinopse */
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px var(--antiquegold);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+#capa-livro {
+    width: 300px;
+    height: 400px;
+    height: auto;
+    cursor: pointer;
+    margin: 30px 0 30px 30px;
+    display: block; /*nova*/
+  }
+  
+
+#sinopse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--antiquegold);
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.sinopse {
+  text-align: justify;
+  max-width: 80%;
+  padding: 25px;
+  margin: 0 auto;
+}

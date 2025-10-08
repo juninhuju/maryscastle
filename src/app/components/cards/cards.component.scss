@@ -1,0 +1,52 @@
+/* Estilos para o Card Individual */
+* {
+    color: antiquewhite;
+}
+.container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* opcional: centraliza os cards */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card {
+  width: 15rem;
+  background-color: var(--blackabsolut);
+  border: 2px solid var(--antiquegold);
+  border-radius: 0 0 20px 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background-color: var(--warmbrown);
+  border: 1px solid var(--warmbrown);
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--lightbeige);
+  color: var(--warmbrown);
+  border: 2px solid var(--warmbrown);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.card-title {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card-text {
+  text-align: center;
+  padding: 10px;
+}
+

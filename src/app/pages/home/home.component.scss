@@ -1,0 +1,32 @@
+:root {
+  --blackabsolut: #1f1f1f;
+  --lightbeige: #F5F5DC;
+  --warmbrown: #8B5E3C;
+  --lightgolden: #FFD700;
+  --antiquegold: #cc9966;
+  --font-title: Georgia, serif;
+  --font-text: Verdana, Geneva, sans-serif;
+}
+
+body {
+  background-color: var(--blackabsolut);
+  color: var(--lightbeige);
+}
+
+.container-fluid {
+  width: 90%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  text-align: center;
+  padding: 2rem;
+}
+
+p, span, li, a, div {
+  font-family: var(--font-text);
+}
+
+h1 {
+    text-shadow: 5px 5px 10px rgb(136, 116, 0) !important;
+}

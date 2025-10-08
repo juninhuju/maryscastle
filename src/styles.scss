@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --blackabsolut: #000000;
+  --lightbeige: #F5F5DC;
+  --warmbrown: #8B5E3C;
+  --lightgolden: #FFD700;
+  --antiquegold: #cc9966;
+  --font-title: Georgia, serif;
+  --font-text: Verdana, Geneva, sans-serif;
+}
+
+html, body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--blackabsolut) !important;
+  color: var(--lightbeige) !important;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh; 
+}
+
+.content-wrap {
+  flex: 1 0 auto; 
+  padding-bottom: 2rem; 
+}
+
+
+.container-fluid {
+  width: 90%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title)!important;
+  text-align: center;
+  padding: 2rem;
+}
+
+p, span, li, a, div {
+  font-family: var(--font-text);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+#sinopse {
+  flex-direction: column;
+}
+
+.imgCarousel {
+  height: 250px;
+}
+
+.card-citacao {
+  margin-bottom: 20px;
+}
+
+.cards {
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+#banner1, #banner2 {
+  width: 90%;
+  height: auto;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.capitulo {
+  width: 100%;
+}
+
+footer {
+  flex-direction: column;
+}
+}
+

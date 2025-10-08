@@ -1,0 +1,53 @@
+/* Carrossel */
+.card-body {
+  height: auto;
+}
+
+#inicio {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 40px 0;
+}
+
+.card-citacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--lightbeige);
+  color: var(--warmbrown);
+  font-weight: bold;
+  border-radius: 10px;
+  line-height: 32px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+#carouselExampleFade {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgCarousel {
+  width: 100%;
+  height: 400px; /* altura fixa desejada */
+  object-fit: cover; /* mantém proporção e preenche o espaço */
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#carousel {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#carouselExampleFade {
+  width: 50%;
+  margin: 0 auto;
+}
+  

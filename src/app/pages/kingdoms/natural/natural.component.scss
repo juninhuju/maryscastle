@@ -1,0 +1,77 @@
+h1:hover,
+h2:hover,
+h3:hover {
+  text-shadow: 0 0 10px #4caf50; 
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.descricao {
+  background-color: rgba(120, 90, 60, 0.3); 
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 5px solid #2e7d32;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  color: var(--lightbeige);
+  position: relative;
+  z-index: 1;
+}
+
+.natural-container {
+  background-color: var(--blackabsolut);
+  color: var(--lightbeige);
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.imagem-natural {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.imagem-natural img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border: 3px solid #4caf50; 
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 150, 136, 0.3); 
+  filter: saturate(110%) contrast(105%);
+  transition: transform 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.imagem-natural img:hover {
+  transform: scale(1.05);
+}
+
+.atributos {
+  background-color: rgba(120, 90, 60, 0.3); 
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 5px solid #2e7d32; 
+  position: relative;
+  z-index: 1;
+}
+
+.atributos h3 {
+  color: var(--lightbeige);
+  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.atributos ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+.atributos li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--lightbeige);
+}

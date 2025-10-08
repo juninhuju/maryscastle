@@ -1,0 +1,12 @@
+<h2>Os reinos</h2>
+
+<div class="container-fluid">
+    <div class="card" *ngFor="let reino of reinos">
+        <img alt="'Imagem do Reino {{ reino.titulo }}' + reino.titulo" class="card-img-top" [src]="reino.imagemSrc"/>
+        <div class="card-body">
+            <h5 class="card-title">{{ reino.titulo }}</h5>
+            <p class="card-text">{{ reino.guardiao }}</p>
+            <a class="btn btn-primary" [routerLink]="reino.rota">Conheça</a>
+        </div>
+    </div>
+</div>
