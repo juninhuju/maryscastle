@@ -1,67 +1,32 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine, isMainModule } from '@angular/ssr/node';
-import express from 'express';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import bootstrap from './main.server';
+import { CommonEngine } from '@angular/ssr/node';
+import { render } from '@netlify/angular-runtime/common-engine.mjs';
 
-const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-const browserDistFolder = resolve(serverDistFolder, '../browser');
-const indexHtml = join(serverDistFolder, 'index.server.html');
+// As importações a seguir não são estritamente necessárias para o handler do Netlify,
+// mas as mantemos para garantir que a construção do bundle funcione,
+// assumindo que 'bootstrap' (main.server) é referenciado implicitamente no build.
+import bootstrap from './main.server'; 
+// import { AppServerModule } from './src/main.server'; // Removido, pois geralmente é redundante se bootstrap for usado
+// import { environment } from './src/environments/environment'; // Removido, pois não é usado aqui
 
-const app = express();
+// Inicializa o CommonEngine. A função netlifyCommonEngineHandler o utiliza para renderizar a app.
 const commonEngine = new CommonEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Funções e variáveis relacionadas à inicialização do servidor Express local
+ * (como serverDistFolder, browserDistFolder, indexHtml, app, app.get, app.listen)
+ * foram REMOVIDAS daqui, pois o Netlify assume a responsabilidade de roteamento e servidor.
  */
 
 /**
- * Serve static files from /browser
+ * Handler de Requisições para o Netlify.
+ * * O plugin '@netlify/angular-runtime' espera encontrar e exportar esta função,
+ * que segue o padrão de função sem servidor (Serverless Function) do Netlify.
+ * * @param request O objeto Request da requisição recebida.
+ * @param context O contexto de execução do Netlify.
+ * @returns Uma Promise que resolve para o objeto Response (o HTML renderizado).
  */
-app.get(
-  '**',
-  express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html'
-  }),
-);
-
-/**
- * Handle all other requests by rendering the Angular application.
- */
-app.get('**', (req, res, next) => {
-  const { protocol, originalUrl, baseUrl, headers } = req;
-
-  commonEngine
-    .render({
-      bootstrap,
-      documentFilePath: indexHtml,
-      url: `${protocol}://${headers.host}${originalUrl}`,
-      publicPath: browserDistFolder,
-      providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-    })
-    .then((html) => res.send(html))
-    .catch((err) => next(err));
-});
-
-/**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
- */
-if (isMainModule(import.meta.url)) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+export async function netlifyCommonEngineHandler(request: Request, context: any): Promise<Response> {
+  // A função 'render' do Netlify lida com a maior parte da lógica de SSR,
+  // usando o 'commonEngine' que criamos.
+  return await render(commonEngine);
 }
-
-export default app;
