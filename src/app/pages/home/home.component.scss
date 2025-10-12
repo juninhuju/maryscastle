@@ -3,6 +3,7 @@
   --lightbeige: #F5F5DC;
   --warmbrown: #8B5E3C;
   --lightgolden: #FFD700;
+  --golden: #887400;
   --antiquegold: #cc9966;
   --font-title: Georgia, serif;
   --font-text: Verdana, Geneva, sans-serif;
@@ -28,5 +29,5 @@ p, span, li, a, div {
 }
 
 h1 {
-    text-shadow: 5px 5px 10px rgb(136, 116, 0) !important;
+    text-shadow: 5px 5px 10px var(--golden) !important;
 }

@@ -46,7 +46,6 @@
     width: 100%; 
     max-width: 300px; 
     height: auto;
-
     display: block;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0 0 10px var(--antiquegold); 
@@ -68,7 +67,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 575.98px) {
     .capitulo-layout {
         flex-direction: column; 
     }
@@ -80,5 +79,8 @@
 
     .botao {
         order: -1; 
+    }
+    p {
+        font-size: 80%;
     }
 }

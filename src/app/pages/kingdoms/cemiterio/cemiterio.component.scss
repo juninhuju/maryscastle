@@ -70,3 +70,18 @@ h3:hover {
   line-height: 1.6;
   color: #ddd;
 }
+
+@media (max-width: 575.98px) {
+.descricao, .atributos {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  text-align: justify;
+  color: #ddd;
+}
+
+.cemiterio-container {
+  width: 98%;
+}
+
+}

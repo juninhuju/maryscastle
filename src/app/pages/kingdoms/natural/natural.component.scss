@@ -75,3 +75,17 @@ h3:hover {
   line-height: 1.6;
   color: var(--lightbeige);
 }
+
+@media (max-width: 575.98px) {
+.descricao, .atributos {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  text-align: justify;
+  color: #ddd;
+}
+
+.natural-container {
+  width: 98%;
+}
+}

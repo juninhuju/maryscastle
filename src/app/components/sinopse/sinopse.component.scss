@@ -13,12 +13,22 @@ img:hover {
 }
 
 #capa-livro {
-    width: 400px;
-    height: 520px;
+    width: 100%; 
+    max-width: 300px;
     height: auto;
-    cursor: pointer;
-    margin: 30px 0 30px 30px;
-    display: block; /*nova*/
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px var(--antiquegold); 
+    border-radius: 8px; 
+    width: 100%; 
+    max-width: 300px; 
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px var(--antiquegold); 
+    border-radius: 8px;
+    margin-left: auto;  /* Centraliza o bloco */
+    margin-right: auto; /* Centraliza o bloco */
   }
   
 
@@ -27,7 +37,6 @@ img:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
 }
 
 .sinopse {
@@ -36,11 +45,10 @@ img:hover {
   max-width: 90%; /* Define a largura máxima como 60% do contêiner pai */
   margin-left: auto;  /* Centraliza o bloco */
   margin-right: auto; /* Centraliza o bloco */
-  margin-bottom: 2rem; /* Mantido, mas reordenado */
+  margin: 1rem 0; /* Mantido, mas reordenado */
   background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
   padding: 3rem;
   border-radius: 8px;
-  border-left: 5px solid var(--warmbrown); /* vermelho profundo */
   font-size: 1rem;
   line-height: 1.8;
   color: var(--lightbeige);
@@ -48,4 +56,26 @@ img:hover {
 
 p {
   font-size:large;
+}
+
+@media (max-width: 575.98px) {
+  #sinopse {
+    margin: 0;
+    padding: 0;
+  }
+
+.sinopse {
+  max-width: 98%; /* Define a largura máxima como 60% do contêiner pai */
+  margin-bottom: 1rem; /* Mantido, mas reordenado */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+  #capa-livro {
+    width: 70%;
+  }
+
+  p {
+    font-size: 80%;
+  }
 }

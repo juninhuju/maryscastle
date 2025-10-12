@@ -1,4 +1,8 @@
 /* Header */
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
 
 .bg-light {
   background-color: var(--warmbrown) !important;
@@ -7,6 +11,7 @@
 
 .nav-item {
   color: var(--lightbeige) !important;
+  padding: 5px;
 }
 
 #comprar {
@@ -14,16 +19,10 @@
   color: var(--warmbrown) !important;
   border-radius: 5px;
   border: 2px solid var(--warmbrown);
-
-  padding: 8px 16px; 
+  padding: 5px; 
   transition: all 0.15s ease-out; 
-  
-  /* Sombra no Texto (OK, mantida) */
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); 
-  
-  /* Sombra para destaque no fundo --warmbrown */
-  /* Adicionamos uma sombra de profundidade sutil preta (box-shadow) */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Deslocamento 0, 2px para baixo, 5px desfoque, preto 50% */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Efeito de HOVER (Passar o mouse) - Agora com um contorno 3D mais visível */
@@ -41,4 +40,22 @@
 #comprar:active {
   box-shadow: 0 0 0 var(--blackabsolute); 
   transform: none; 
+}
+
+.flex-fill {
+  width: 220px;
+  height: 30px;
+}
+
+@media (max-width: 575.98px) {
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  font-size: 80%;
+}
+
 }
