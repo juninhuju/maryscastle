@@ -1,0 +1,143 @@
+:root {
+    /* Definições de cores base, ajustáveis */
+    --warmbrown: #8B4513; /* Marrom Quente */
+    --lightbeige: #F5F5DC; /* Bege Claro */
+    --shadowcolor: rgba(0, 0, 0, 0.1);
+}
+
+.download-page {
+    /* Centraliza o conteúdo principal e adiciona padding */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilos de Seção de Download (PDF/Música) */
+.download-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.download-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--shadowcolor);
+    width: 100%;
+    max-width: 300px; /* Limite em desktops */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.download-item:hover {
+    transform: translateY(-5px);
+}
+
+.download-item i.fas {
+    color: var(--warmbrown);
+    margin-bottom: 10px;
+    font-size: 3em;
+}
+
+.download-item h4, .download-item h5 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos de Botão Reutilizados (Seus estilos customizados) */
+.download-item .btn-primary,
+.download-item .btn-secondary {
+    background-color: var(--warmbrown);
+    border: 1px solid var(--warmbrown);
+    color: var(--lightbeige); 
+    text-decoration: none; 
+    display: inline-flex; 
+    padding: 10px 20px; 
+    border-radius: 8px; /* Ligeiramente mais arredondado */
+    cursor: pointer; 
+    align-items: center; 
+    justify-content: center;
+    gap: 8px; 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.download-item .btn-primary:hover,
+.download-item .btn-secondary:hover {
+    background-color: var(--lightbeige);
+    color: var(--warmbrown);
+    border: 1px solid var(--warmbrown); 
+}
+
+.download-item .btn-primary:focus,
+.download-item .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--warmbrown), 0.5); 
+}
+
+/* Estilos de Galeria/Grid de Imagens */
+.gallery-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.image-grid {
+    display: grid;
+    /* Layout responsivo: 2 colunas no celular, 4 no tablet, 5 no desktop */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.image-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadowcolor);
+}
+
+.image-item .thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.image-item:hover .thumbnail {
+    opacity: 0.8;
+}
+
+.image-item .btn-sm {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--warmbrown);
+    box-shadow: 0 1px 3px var(--shadowcolor);
+}
+
+/* Media Queries para ajuste de layout */
+@media (min-width: 640px) {
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .image-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

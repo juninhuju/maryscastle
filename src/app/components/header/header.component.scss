@@ -8,3 +8,37 @@
 .nav-item {
   color: var(--lightbeige) !important;
 }
+
+#comprar {
+  background-color: var(--lightbeige);
+  color: var(--warmbrown) !important;
+  border-radius: 5px;
+  border: 2px solid var(--warmbrown);
+
+  padding: 8px 16px; 
+  transition: all 0.15s ease-out; 
+  
+  /* Sombra no Texto (OK, mantida) */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); 
+  
+  /* Sombra para destaque no fundo --warmbrown */
+  /* Adicionamos uma sombra de profundidade sutil preta (box-shadow) */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Deslocamento 0, 2px para baixo, 5px desfoque, preto 50% */
+}
+
+/* Efeito de HOVER (Passar o mouse) - Agora com um contorno 3D mais visível */
+#comprar:hover {
+  /* Contorno 3D: Use uma cor mais clara ou mais escura para quebrar o fundo --warmbrown */
+  /* Vou usar uma cor mais clara ou até mesmo branco/preto para garantir o contraste */
+  /* Exemplo: Usando preto para um contorno forte */
+  box-shadow: 4px 4px 0px var(--blackabsolute); /* MUDANÇA AQUI: Sombra 3D agora é PRETA */
+  
+  transform: translateY(-2px); 
+  cursor: pointer; 
+}
+
+/* Efeito de CLICK (Ativo/Pressionado) */
+#comprar:active {
+  box-shadow: 0 0 0 var(--blackabsolute); 
+  transform: none; 
+}

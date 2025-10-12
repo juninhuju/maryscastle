@@ -1,5 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { LivroComponent } from './components/livro/livro.component';
+import { CarouselComponent } from './pages/carousel/carousel.component';
+import { AuthorComponent } from './pages/author/author.component';
+import { DownloadComponent } from './pages/download/download.component';
 
 export const routes: Routes = [
         {
@@ -31,6 +36,31 @@ export const routes: Routes = [
                             .then(m => m.NaturalComponent),
         title: 'Natural'
     },
+            {
+        path: 'quiz',
+        component: QuizComponent,
+        title: 'Quiz'
+    },
+        {
+        path: 'livro',
+        component: LivroComponent,
+        title: 'Primeiro Capítulo'
+    },
+        {
+        path: 'carousel',
+        component: CarouselComponent,
+        title: 'Imagens'
+    },
+            {
+        path: 'author',
+        component: AuthorComponent,
+        title: 'Autor'
+    },
+      { 
+    path: 'downloads', 
+    component: DownloadComponent,
+    title: 'Recursos para Download' 
+  },
     {
         path: '**',
         redirectTo: '',

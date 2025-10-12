@@ -1,0 +1,49 @@
+<div class="download-page">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Recursos para Download</h2>
+
+    <section class="download-section">
+        
+        <div class="download-item">
+            <i class="fas fa-file-pdf text-5xl mb-3"></i>
+            <h4>Primeiro Capítulo (PDF)</h4>
+            <!-- Usa a variável 'capituloPdf' da classe TS -->
+            <a href="livro.pdf" download class="btn btn-primary">
+                <i class="fas fa-download"></i> Baixar PDF
+            </a>
+        </div>
+
+        <div class="download-item">
+            <i class="fas fa-music text-5xl mb-3"></i>
+            <h5>Música "Mágoa" - Versão Padrão</h5>
+            <!-- Usa a variável 'musicaMagua' da classe TS -->
+            <a href="magoa.mp3" download class="btn btn-secondary">
+                <i class="fas fa-file-audio"></i> Baixar MP3
+            </a>
+        </div>
+
+        <div class="download-item">
+            <i class="fas fa-music text-5xl mb-3"></i>
+            <h5>Música "Mágoa" - Remix</h5>
+            <!-- CORRIGIDO: Usa a variável 'musicaBalada' da classe TS -->
+            <a href="magoaremix.mp3" download class="btn btn-secondary">
+                <i class="fas fa-file-audio"></i> Baixar MP3 Remix
+            </a>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Imagens do Carrossel ({{ carrosselImages.length }} Imagens)</h2>
+        
+        <div class="image-grid">
+            @for (imageName of carrosselImages; track imageName) {
+                <div class="image-item">
+                    <img [src]="basePath + '/' + imageName" alt="Imagem Carrossel" class="thumbnail">
+                    
+                    <a [href]="basePath + '/' + imageName" download [download]="'imagem_' + imageName" class="btn btn-sm btn-light" title="Baixar Imagem">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+</div>

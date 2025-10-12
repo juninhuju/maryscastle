@@ -1,33 +1,27 @@
-/* Primeiro Capítulo */
-
 #capitulo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0 15px;
 }
 
 .capitulo-layout {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-}
-
-.capitulo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 #banner1, #banner2 {
-    width: auto;
-    max-width: 350px;
-    height: 250px; 
+    flex: 1 1 300px; 
+    min-width: 250px; 
+    width: auto; 
+    height: auto; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,23 +29,24 @@
     color: var(--lightbeige);
     font-weight: bold;
     border-radius: 10px;
-    line-height: 32px;
+    line-height: 1.5;
     padding: 20px;
     box-shadow: 0 0 10px var(--antiquegold);
-    flex-shrink: 0;
-    margin: 0 auto;
+    margin: 10px 0;
 }
 
-.image-button {
-  background-color: var(--blackabsolut);
-  margin: 0;
-  padding: 0;
-} 
+.botao {
+    flex-shrink: 0; 
+    margin: 10px;
+    text-align: center;
+    flex: 0 0 auto; 
+}
 
 #capa {
     width: 100%; 
-    height: 100%;    
-    max-width: 400px;  
+    max-width: 300px; 
+    height: auto;
+
     display: block;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0 0 10px var(--antiquegold); 
@@ -61,6 +56,29 @@
 #capa:hover {
     transform: scale(1.03); 
     box-shadow: 0 0 15px var(--lightbeige), 
-                0 0 25px var(--antiquegold); /* Adiciona um brilho extra */
+                0 0 25px var(--antiquegold);
     cursor: pointer; 
+}
+
+.image-button {
+    background: none; 
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 850px) {
+    .capitulo-layout {
+        flex-direction: column; 
+    }
+    
+    #banner1, #banner2 {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+
+    .botao {
+        order: -1; 
+    }
 }

@@ -13,8 +13,8 @@ img:hover {
 }
 
 #capa-livro {
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 520px;
     height: auto;
     cursor: pointer;
     margin: 30px 0 30px 30px;
@@ -27,14 +27,25 @@ img:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--antiquegold);
-  border-radius: 15px;
   margin: 20px 0;
 }
 
 .sinopse {
   text-align: justify;
-  max-width: 80%;
-  padding: 25px;
   margin: 0 auto;
+  max-width: 90%; /* Define a largura máxima como 60% do contêiner pai */
+  margin-left: auto;  /* Centraliza o bloco */
+  margin-right: auto; /* Centraliza o bloco */
+  margin-bottom: 2rem; /* Mantido, mas reordenado */
+  background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
+  padding: 3rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--warmbrown); /* vermelho profundo */
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--lightbeige);
+}
+
+p {
+  font-size:large;
 }

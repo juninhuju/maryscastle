@@ -1,0 +1,24 @@
+<section id="carousel">
+    <div class="container mt-4">
+        <ngb-carousel [interval]="5000" [showNavigationArrows]="true" [showNavigationIndicators]="true">
+            
+            @for (slide of slides; track slide.id) {
+                
+                <ng-template ngbSlide>
+                    <img 
+                        [src]="getImagePath(slide.id, slide.extension)" 
+                        alt="slide.alt" 
+                        class="imgCarousel"
+                    >
+                </ng-template>
+
+            }
+            @empty {
+                <ng-template ngbSlide>
+                    <div class="p-5 text-center">Carregando...</div>
+                </ng-template>
+            }
+
+        </ngb-carousel>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+.livro-estatico {
+  text-align: justify;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background: rgb(245, 236, 220);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: var(--blackabsolut);
+  border: 1px solid var(--lightbeige);
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--warmbrown);
+  margin-bottom: 30px;
+}
+
+table.sumario {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+
+  td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--warmbrown);
+    font-size: 16px;
+  }
+
+  td:last-child {
+    text-align: right;
+    color: var(--warmbrown);
+    font-weight: bold;
+  }
+}
+
+.capitulo {
+  p {
+    margin-bottom: 20px;
+    text-indent: 30px;
+  }
+
+  br {
+    margin-bottom: 10px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  background-color: var(--warmbrown);
+  border: 1px solid var(--lightbeige);
+  color: var(--lightbeige);
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--lightbeige);
+  color: var(--warmbrown);
+  border: 2px solid var(--warmbrown);
+}

@@ -1,1 +1,133 @@
-<p>quiz works!</p>
+<h1>
+  Os Reinos Chamam: A Qual Você Responderá?
+</h1>
+
+@if (reinoFinal === '') {
+  <form #questionarioForm id="questionario" (submit)="calcular($event)">
+    
+    <fieldset name="q1">
+      <legend>1. Você está em uma festa. Qual é o seu papel natural?</legend>
+      <label><input type="radio" name="q1" value="persuasao-estetica" required> A. O diplomata que garante que todos estejam felizes e engajados.</label><br>
+      <label><input type="radio" name="q1" value="aventura-decisao"> B. O ponto de referência: sempre se movendo e planejando a próxima atividade.</label><br>
+      <label><input type="radio" name="q1" value="consciencia-profundidade"> C. O observador silencioso, focado em entender a dinâmica e a energia do lugar.</label><br>
+      <label><input type="radio" name="q1" value="disciplina-consciencia"> D. A pessoa que garante que as regras da casa e do evento sejam respeitadas.</label>
+    </fieldset>
+
+    <fieldset name="q2">
+      <legend>2. O que mais lhe chama a atenção em uma pessoa?</legend>
+      <label><input type="radio" name="q2" value="profundidade-disciplina" required> A. Sua aura de mistério, a elegância sombria de sua postura.</label><br>
+      <label><input type="radio" name="q2" value="estetica-persuasao"> B. Seu carisma, a roupa que exala luxo e a forma como ela se comunica.</label><br>
+      <label><input type="radio" name="q2" value="decisao-aventura"> C. Sua habilidade de planejar o futuro e de tomar decisões rápidas.</label><br>
+      <label><input type="radio" name="q2" value="consciencia-elemental"> D. A paz que ela irradia e o domínio sobre suas próprias emoções.</label>
+    </fieldset>
+
+    <fieldset name="q3">
+      <legend>3. Qual destas frases é a sua favorita?</legend>
+      <label><input type="radio" name="q3" value="profundidade-disciplina" required> A. "A única verdade é o fim de todas as coisas."</label><br>
+      <label><input type="radio" name="q3" value="estetica-persuasao"> B. "Deixe o coração guiar sua ação, a vida é uma festa!"</label><br>
+      <label><input type="radio" name="q3" value="decisao-aventura"> C. "Cada escolha que fazemos define nosso destino."</label><br>
+      <label><input type="radio" name="q3" value="consciencia-elemental"> D. "O segredo da vida está no silêncio e no ciclo da natureza."</label>
+    </fieldset>
+
+    <fieldset name="q4">
+      <legend>4. Você vê uma injustiça. Sua reação imediata é:</legend>
+      <label><input type="radio" name="q4" value="decisao-aventura" required> A. Focar em consertar o caos, traçando um caminho de volta e orientando quem precisa de ajuda.</label><br>
+      <label><input type="radio" name="q4" value="disciplina-profundidade"> B. Planejar uma retaliação longa, fria e que garanta que a lei final seja cumprida.</label><br>
+      <label><input type="radio" name="q4" value="estetica-persuasao"> C. Criar um movimento ou protesto artístico para despertar a emoção do público.</label><br>
+      <label><input type="radio" name="q4" value="elemental-consciencia"> D. Entender a causa raiz no ambiente para neutralizar a origem do problema magicamente.</label>
+    </fieldset>
+
+    <fieldset name="q5">
+      <legend>5. Qual tipo de magia o fascina mais?</legend>
+      <label><input type="radio" name="q5" value="profundidade-disciplina" required> A. A magia da Transmutação: purificar e limpar o que já não serve.</label><br>
+      <label><input type="radio" name="q5" value="elemental-consciencia"> B. A magia dos Elementos: invocar e comandar forças da natureza (fogo, água, terra e ar).</label><br>
+      <label><input type="radio" name="q5" value="aventura-decisao"> C. A magia da Rota: abrir portais e caminhos para alcançar qualquer destino.</label><br>
+      <label><input type="radio" name="q5" value="persuasao-estetica"> D. A magia do Charme e da Ilusão: despertar o desejo e a alegria nos corações.</label>
+    </fieldset>
+
+    <fieldset name="q6">
+      <legend>6. Qual é sua principal filosofia de vida?</legend>
+      <label><input type="radio" name="q6" value="consciencia-profundidade" required> A. A busca incessante por sabedoria e conhecimento antigo.</label><br>
+      <label><input type="radio" name="q6" value="aventura-decisao"> B. A ambição de ir sempre mais longe, desbravando novos horizontes.</label><br>
+      <label><input type="radio" name="q6" value="estetica-persuasao"> C. Viver intensamente o prazer e a beleza em todas as suas formas.</label><br>
+      <label><input type="radio" name="q6" value="disciplina-profundidade"> D. A rigidez da moral e a aplicação justa e implacável das regras.</label>
+    </fieldset>
+
+    <fieldset name="q7">
+      <legend>7. Qual cenário o acalma mais profundamente?</legend>
+      <label><input type="radio" name="q7" value="aventura-decisao" required> A. Uma rua movimentada, cheia de encontros e caminhos a escolher.</label><br>
+      <label><input type="radio" name="q7" value="consciencia-elemental"> B. Uma floresta isolada, onde você ouve apenas água e vento.</label><br>
+      <label><input type="radio" name="q7" value="estetica-persuasao"> C. Uma mansão luxuosa e artisticamente decorada, com música e vinho.</label><br>
+      <label><input type="radio" name="q7" value="profundidade-disciplina"> D. Um lugar silencioso, como um museu de história ou biblioteca de leis.</label>
+    </fieldset>
+
+    <fieldset name="q8">
+      <legend>8. Se você fosse um professor, ensinaria sobre:</legend>
+      <label><input type="radio" name="q8" value="decisao-aventura" required> A. O poder das escolhas e como se defender dos que tentam desviar você do seu caminho.</label><br>
+      <label><input type="radio" name="q8" value="persuasao-estetica"> B. Como as emoções e a beleza podem ser usadas para influenciar e curar os outros.</label><br>
+      <label><input type="radio" name="q8" value="elemental-consciencia"> C. A ciência por trás dos ciclos de vida, da energia e dos segredos da natureza.</label><br>
+      <label><input type="radio" name="q8" value="disciplina-profundidade"> D. Que a única verdade é o fim de todas as coisas, e que a ordem final deve ser mantida.</label>
+    </fieldset>
+
+    <fieldset name="q9">
+      <legend>9. Qual é o seu objeto de maior valor?</legend>
+      <label><input type="radio" name="q9" value="elemental-consciencia" required> A. Uma planta rara, um cristal, ou um elixir que você mesmo preparou.</label><br>
+      <label><input type="radio" name="q9" value="estetica-persuasao"> B. Uma joia de grande beleza ou uma peça de roupa que atrai a atenção.</label><br>
+      <label><input type="radio" name="q9" value="profundidade-disciplina"> C. Um livro muito antigo de leis ou um diário que guarda segredos de família.</label><br>
+      <label><input type="radio" name="q9" value="aventura-decisao"> D. Uma ferramenta de navegação ou um mapa que mostra todas as rotas possíveis.</label>
+    </fieldset>
+
+    <fieldset name="q10">
+      <legend>10. Qual roupa você usaria em uma cerimônia importante?</legend>
+      <label><input type="radio" name="q10" value="estetica-persuasao" required> A. Algo chamativo, com cores vibrantes e joias que atraem todos os olhares.</label><br>
+      <label><input type="radio" name="q10" value="decisao-disciplina"> B. Algo elegante, com capa e cartola, que sugere autoridade e vigilância.</label><br>
+      <label><input type="radio" name="q10" value="consciencia-elemental"> C. Algo rústico, de tecidos naturais, que permite movimento e camuflagem no ambiente.</label><br>
+      <label><input type="radio" name="q10" value="profundidade-disciplina"> D. Algo pesado, de tecido escuro e austero, que impõe respeito e silêncio.</label>
+    </fieldset>
+
+    <fieldset name="q11">
+      <legend>11. Qual é a sua relação com a memória e o passado?</legend>
+      <label><input type="radio" name="q11" value="profundidade-consciencia" required> A. O passado é a chave para entender o presente, cheio de lições e legados sombrios.</label><br>
+      <label><input type="radio" name="q11" value="aventura-decisao"> B. O passado é uma âncora: o melhor é esquecer e focar no próximo objetivo e na próxima viagem.</label><br>
+      <label><input type="radio" name="q11" value="persuasao-estetica"> C. O passado são histórias valiosas, mas o presente deve ser aproveitado com prazer.</label><br>
+      <label><input type="radio" name="q11" value="disciplina-profundidade"> D. O passado são apenas dados: são importantes para que as regras futuras sejam justas.</label>
+    </fieldset>
+
+    <fieldset name="q12">
+      <legend>12. Sua principal fonte de energia vem de:</legend>
+      <label><input type="radio" name="q12" value="elemental-consciencia" required> A. Sentir a força da terra e dos elementos ao seu redor.</label><br>
+      <label><input type="radio" name="q12" value="persuasao-estetica"> B. Estar no centro da atenção, influenciando e envolvendo as pessoas.</label><br>
+      <label><input type="radio" name="q12" value="decisao-aventura"> C. Tomar uma grande decisão e seguir um novo caminho com propósito.</label><br>
+      <label><input type="radio" name="q12" value="disciplina-profundidade"> D. Um período de isolamento e silêncio, onde você pode impor ordem interna.</label>
+    </fieldset>
+    
+    <div class="form-buttons">
+      <button type="submit" class="btn-primary">Enviar Respostas</button>
+      <button type="button" class="btn-secondary" (click)="reiniciaCalculo()">Reiniciar</button> 
+    </div>
+  </form>
+}
+
+@if (reinoFinal !== '') {
+  <div class="resultado-container">
+    <h2>Resultado da Afinidade</h2>
+    
+    <h3 class="reino-titulo-dramatico" [ngClass]="'cor-' + reinoFinal">{{ getReinoDescricao(reinoFinal).titulo }}</h3>  
+    <img [src]="REINOS_IMAGENS[reinoFinal]" alt="Guardião do Reino" class="img-guardiao">
+
+    <div class="descricao-personalidade">
+      <p>{{ getReinoDescricao(reinoFinal).texto }}</p>
+    </div>
+
+    <p>Pontuações de Afinidade por Reino:</p>
+      <ul style="list-style: none; padding: 0;">
+        @for (result of resultadosFinais | keyvalue; track result.key) {
+          <li class="afinidade-item" [ngClass]="'cor-' + result.key">
+            <span class="apelido-reino">{{ getReinoApelido(result.key) | uppercase }} / </span>
+            <strong> ({{ getReinoNomeCompleto(result.key) }}):</strong> {{ result.value.toFixed(2) }}
+          </li>
+        }
+      </ul>    
+    <button type="button" (click)="reiniciaCalculo()" class="btn-secondary" style="margin-top: 20px;">Fazer Novamente</button>
+  </div>
+}
