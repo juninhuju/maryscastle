@@ -21,10 +21,10 @@ imports: [CardsComponent, PreviewComponent, QuizbuttonComponent, SinopseComponen
 export class HomeComponent {
 
   reinos: Reino[] = [
-  { titulo: 'Lira', guardiao: 'Maria Padilha', imagemSrc: '/lira.png', rota: '/lira' },
-  { titulo: 'Natural', guardiao: 'Esdras', imagemSrc: '/natural.png', rota: '/natural' },
-  { titulo: 'Cemitério', guardiao: 'O Caveira', imagemSrc: '/cemiterio.png', rota: '/cemiterio' },
-  { titulo: 'Encruzilhada', guardiao: 'Sete', imagemSrc: '/encruzilhada.png', rota: '/encruzilhada' },
+  { titulo: 'Lira', guardiao: 'Maria Padilha', imagemSrc: '/lira.jpeg', rota: '/lira' },
+  { titulo: 'Natural', guardiao: 'Esdras', imagemSrc: '/natural.jpeg', rota: '/natural' },
+  { titulo: 'Cemitério', guardiao: 'Caveira', imagemSrc: '/cemiterio.jpeg', rota: '/cemiterio' },
+  { titulo: 'Encruzilhada', guardiao: 'Sete', imagemSrc: '/encruzilhada.jpeg', rota: '/encruzilhada' },
 ];;
 
 }

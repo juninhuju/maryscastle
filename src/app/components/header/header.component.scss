@@ -1,9 +1,12 @@
-/* Header */
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
+:root {
+  --warmbrown: #5D4037; /* Marrom Escuro Quente */
+  --lightbeige: #F5F5DC; /* Bege Claro */
+  --blackabsolute: #000000;
 }
 
+.conntainer.fluid {
+  align-items: center;
+}
 .bg-light {
   background-color: var(--warmbrown) !important;
   color: antiquewhite;
@@ -11,27 +14,58 @@
 
 .nav-item {
   color: var(--lightbeige) !important;
-  padding: 5px;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
 }
 
+.nav-item:hover {
+  color: #fff !important; 
+}
+
+.navbar-toggler {
+    background-color: var(--warmbrown) !important; 
+    border: 2px solid var(--lightbeige) !important; /* Borda clara para contorno */
+    padding: 6px 10px !important; 
+    border-radius: 10px !important; /* Arredondamento maior */
+    margin-right: 10px; /* Espaçamento à direita do áudio/comprar no mobile */
+}
+
+/* Cor do ícone hambúrguer para contrastar */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28245, 245, 220, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+/* --- Estilo do Botão Comprar (Customizado) --- */
+
 #comprar {
+  /* Cores de Fundo/Borda/Texto */
   background-color: var(--lightbeige);
   color: var(--warmbrown) !important;
-  border-radius: 5px;
-  border: 2px solid var(--warmbrown);
-  padding: 5px; 
+  border: 2px solid var(--lightbeige); /* Borda da mesma cor do fundo para efeito de bloco */
+  
+  border-radius: 10px; /* Aumentado para melhor arredondamento */
+  padding: 4px 4px; /* Aumentado para dar o efeito de "botão cheio" */
+  display: block; 
+  text-align: center;
+  align-self: center;
+  
+  /* FIXAÇÃO DE TAMANHO */
+  width: 96px; 
+  margin-left: 10px;
+  /* Efeitos e Transição */
   transition: all 0.15s ease-out; 
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Efeito de HOVER (Passar o mouse) - Agora com um contorno 3D mais visível */
+/* Efeito de HOVER no Comprar */
 #comprar:hover {
-  /* Contorno 3D: Use uma cor mais clara ou mais escura para quebrar o fundo --warmbrown */
-  /* Vou usar uma cor mais clara ou até mesmo branco/preto para garantir o contraste */
-  /* Exemplo: Usando preto para um contorno forte */
-  box-shadow: 4px 4px 0px var(--blackabsolute); /* MUDANÇA AQUI: Sombra 3D agora é PRETA */
-  
+  /* O hover original usava o marrom, mas para o visual da imagem, talvez queira manter o bege e trocar o box-shadow */
+  background-color: var(--warmbrown); 
+  color: var(--lightbeige) !important; 
+  border-color: var(--lightbeige);
+  box-shadow: 4px 4px 0px var(--blackabsolute); 
   transform: translateY(-2px); 
   cursor: pointer; 
 }
@@ -42,20 +76,56 @@
   transform: none; 
 }
 
-.flex-fill {
-  width: 220px;
-  height: 30px;
+/* --- Margem Superior para a Seção de Controle --- */
+#controle {
+    margin-left: auto !important; 
 }
 
-@media (max-width: 575.98px) {
+.me-lg-3 {
+    /* O !important é necessário para sobrescrever a regra de .mb-2 que pode ser injetada pelo Bootstrap */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 5px !important; /* Mantém o espaçamento horizontal do audio */
+}
 
-.navbar-nav {
+
+/* --- Estilo do Controle de Áudio --- */
+
+/* 💡 ESTILO DO CONTROLE DE ÁUDIO - PARA PARECER UMA PÍLULA BRANCA */
+.audio-wrapper {
+    /* Garante que o container do áudio seja tratado como flex item */
+    display: flex;
+    align-items: center;
+    margin: 0 !important; 
+    padding: 0 !important;}
+
+.audio-control {
+  /* 💡 FIXAÇÃO DE TAMANHO MAIS COMPACTO */
+  width: 150px; 
+  height: 35px; /* Aumentado um pouco para dar espaço interno */
   display: flex;
-  flex-direction: column;
+  
+  /* 💡 ESTILO DE PÍLULA */
+  background-color: var(--lightbeige); /* Fundo branco/bege */
+  border-radius: 10px; /* Alto border-radius para efeito de pílula */
 }
 
-.nav-item {
-  font-size: 80%;
-}
 
+/* --- Media Query para Mobile (Telas menores que 992px) --- */
+
+@media (max-width: 991.98px) {
+  
+  /* ... Estilos para navbar-nav (mantidos) ... */
+
+  /* 💡 DIV DE CONTROLE (#controle) - SEMPRE VISÍVEL NO MOBILE */
+  #controle {
+      flex-direction: row !important; 
+      justify-content: flex-end; /* Alinha os controles à direita */
+      align-items: center; 
+      margin-left: auto !important; 
+      margin-right: 0 !important;
+      width: auto; 
+  }
+  
+  /* ... Outras regras (flex-shrink, etc.) ... */
 }

@@ -78,13 +78,15 @@ h3:hover {
 
 @media (max-width: 575.98px) {
 .descricao, .atributos {
-  padding: 1rem;
+  padding: 10px;
   margin-bottom: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: justify;
   color: #ddd;
 }
-
+.container-fluid {
+  padding: 10px;
+}
 .lira-container {
   width: 98%;
 }

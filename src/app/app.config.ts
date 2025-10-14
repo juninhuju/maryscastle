@@ -1,24 +1,29 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
-
-import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http'; 
+import { routes } from './app.routes'; 
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    
-    // 👇 A função withInMemoryScrolling deve ser o segundo argumento de provideRouter
+
+    // 1. PROVIDERS DE ROTEAMENTO
+    // 👇 withInMemoryScrolling é o segundo argumento de provideRouter
     provideRouter(
       routes,
       withInMemoryScrolling({
-        // Define que a posição de rolagem será restaurada para o topo [0, 0]
-        scrollPositionRestoration: 'top', 
-        // Permite a rolagem para âncoras (fragmentos de URL como #secao)
+        scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled',
       })
-    ), 
-    
+    ),
+
+    // 2. PROVIDERS GLOBAIS
+    // 👇 provideNgBootstrap() e provideHttpClient() são adicionados aqui, no array principal
+    provideHttpClient(), // Se esta função for necessária, ela fica aqui.
+
+    // 3. PROVIDERS DE HYDRATION
     provideClientHydration(withEventReplay())
   ]
 };

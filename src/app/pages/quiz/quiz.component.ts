@@ -75,10 +75,10 @@ export class QuizComponent implements OnInit {
   // para ser acessível pelo template e métodos do componente.
   // Mapeamento para URLs de imagem (assumindo caminhos relativos à raiz /public/)
   public readonly REINOS_IMAGENS: { [key: string]: string } = {
-    'Lira': '/guardiao-padilha.png', 
-    'Encruzilhada': '/guardiao-sete.png', 
-    'Natural': '/guardiao-esdras.png', 
-    'Cemitério': '/guardiao-caveira.png'
+    'Lira': '/guardiao-padilha.jpeg', 
+    'Encruzilhada': '/guardiao-sete.jpeg', 
+    'Natural': '/guardiao-esdras.jpeg', 
+    'Cemitério': '/guardiao-caveira.jpeg'
   };
 
   private readonly ORDEM_ATRIBUTOS = [

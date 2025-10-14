@@ -31,3 +31,9 @@ p, span, li, a, div {
 h1 {
     text-shadow: 5px 5px 10px var(--golden) !important;
 }
+
+@media (max-width: 575.98px) {
+  .container-fluid {
+    width: 100%;
+  }
+}

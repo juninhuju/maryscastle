@@ -65,9 +65,9 @@ p {
   }
 
 .sinopse {
-  max-width: 98%; /* Define a largura máxima como 60% do contêiner pai */
+  max-width: 100%; /* Define a largura máxima como 60% do contêiner pai */
   margin-bottom: 1rem; /* Mantido, mas reordenado */
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
 }
 
@@ -76,6 +76,6 @@ p {
   }
 
   p {
-    font-size: 80%;
+    font-size: 90%;
   }
 }
