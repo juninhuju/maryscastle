@@ -9,8 +9,6 @@ headers = []
 
 [functions."*"]
 
-[plugins.inputs]
-
 [build]
 publish = "dist/maryscastle/browser"
 publishOrigin = "ui"
