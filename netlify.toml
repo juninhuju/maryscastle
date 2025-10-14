@@ -1,5 +1,5 @@
 headers = []
-redirects = []
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
