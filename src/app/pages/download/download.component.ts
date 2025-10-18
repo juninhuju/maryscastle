@@ -28,7 +28,7 @@ export class DownloadComponent implements OnInit {
   ngOnInit(): void {
     // Popula o array com os 25 nomes de arquivos de imagem (1.png a 25.png)
     for (let i = 1; i <= 25; i++) {
-      this.carrosselImages.push(`${i}.png`);
+      this.carrosselImages.push(`${i}.jpeg`);
     }
   }
 

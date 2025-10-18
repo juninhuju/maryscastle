@@ -29,6 +29,7 @@ img:hover {
     border-radius: 8px;
     margin-left: auto;  /* Centraliza o bloco */
     margin-right: auto; /* Centraliza o bloco */
+    margin-bottom: 30px;
   }
   
 
@@ -47,6 +48,7 @@ img:hover {
   margin-right: auto; /* Centraliza o bloco */
   margin: 1rem 0; /* Mantido, mas reordenado */
   background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
+  border-left: 5px solid var(--warmbrown); /* vermelho profundo */
   padding: 3rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -76,6 +78,6 @@ p {
   }
 
   p {
-    font-size: 90%;
+    font-size: 95%;
   }
 }

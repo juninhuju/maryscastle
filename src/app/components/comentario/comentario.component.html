@@ -1,0 +1,39 @@
+<div class="comentario-container">
+  <h2>Deixe seu Comentário</h2>
+
+  <form (ngSubmit)="adicionarComentario()" class="form-comentario">
+    <input
+      type="text"
+      placeholder="Seu Nome"
+      [(ngModel)]="novoComentario.nome"
+      name="nome"
+      required
+    />
+    <textarea
+      placeholder="Seu Comentário"
+      [(ngModel)]="novoComentario.texto"
+      name="texto"
+      required
+    ></textarea>
+    <button type="submit">Enviar Comentário</button>
+  </form>
+
+  <hr />
+
+  <h3>Comentários Recentes</h3>
+
+  <p *ngIf="isLoading">Carregando comentários...</p>
+
+  <p *ngIf="!isLoading && comentarios.length === 0">
+    Seja o primeiro a comentar!
+  </p>
+
+  <div *ngFor="let comentario of comentarios" class="card-comentario">
+    <p>
+      <strong>{{ comentario.nome }}</strong>
+      <!-- LINHA DO ID REMOVIDA AQUI -->
+    </p>
+    <p class="texto-comentario">{{ comentario.texto }}</p>
+
+  </div>
+</div>

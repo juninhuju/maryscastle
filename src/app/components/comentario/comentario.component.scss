@@ -1,0 +1,173 @@
+// Importa as variáveis globais (se não estiverem disponíveis via :root ou host)
+// Se as variáveis estiverem no seu style.scss, esta parte pode ser opcional.
+:host {
+    // Definindo as variáveis locais para garantir que estão disponíveis
+    --blackabsolut: #1f1f1f;
+    --lightbeige: #F5F5DC;
+    --warmbrown: #8B5E3C;
+    --antiquegold: #cc9966;
+    --golden: #887400;
+    --font-title: 'Georgia', serif;
+    --font-text: 'Verdana', Geneva, sans-serif;
+    
+    display: block; // Garante que o :host se comporta como um bloco
+}
+
+/* Estilo do Container Principal (Redução de 20% em todas as dimensões) */
+.comentario-container {
+    max-width: 520px; /* 800px * 0.8 = 640px */
+    margin: 15px auto; /* 40px * 0.8 = 32px */
+    padding: 10px; /* 30px * 0.8 = 24px */
+    
+    // Fundo escuro sutilmente diferente do body, com borda dourada
+    background-color: var(--blackabsolut); 
+    border: 1px solid var(--antiquegold);
+    border-radius: 8px; /* 10px * 0.8 = 8px */
+    box-shadow: 0 0 12px rgba(var(--antiquegold), 0.5); /* 15px * 0.8 = 12px */
+
+    h2, h3 {
+        font-family: var(--font-title);
+        color: var(--antiquegold);
+        text-align: center;
+        margin: 0 !important;
+        padding: 0 !important; /* 10px * 0.8 = 8px */
+        border-bottom: 1.6px solid var(--warmbrown); /* 2px * 0.8 = 1.6px */
+        text-shadow: 0.8px 0.8px 2.4px var(--golden); /* 1px*0.8=0.8px; 3px*0.8=2.4px */
+        font-size: 1.6rem; /* Ajuste para melhor leitura */
+    }
+    
+    p, small {
+        font-family: var(--font-text);
+        color: var(--lightbeige);
+        font-size: 0.8rem; /* Redução da fonte padrão */
+    }
+
+    hr {
+        margin: 12px 0; /* 30px * 0.8 = 24px */
+        border: 0;
+        border-top: 1px dashed var(--antiquegold);
+    }
+}
+
+/* Estilo do Formulário de Criação */
+.form-comentario {
+    display: flex;
+    flex-direction: column;
+
+    input[type="text"],
+    textarea {
+        padding: 10px; /* 12px * 0.8 = 9.6px -> 10px */
+        background-color: rgba(40, 40, 40, 0.9);
+        color: var(--lightbeige);
+        border: 1px solid var(--warmbrown);
+        border-radius: 3.2px; /* 4px * 0.8 = 3.2px */
+        font-family: var(--font-text);
+        font-size: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        width: 100%;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: var(--antiquegold);
+            outline: none;
+            box-shadow: 0 0 4px var(--antiquegold); /* 5px * 0.8 = 4px */
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 96px; /* 120px * 0.8 = 96px */
+    }
+
+    button[type="submit"] {
+        @extend .btn-primary; // Reutiliza o estilo dramático do seu botão principal
+        align-self: flex-start; 
+        margin-top: 8px; /* 10px * 0.8 = 8px */
+    }
+}
+
+/* Estilos dos Botões (Redução de 20%) */
+.btn-primary {
+    background-color: var(--warmbrown);
+    color: var(--lightbeige);
+    border: 1.6px solid var(--warmbrown); /* 2px * 0.8 = 1.6px */
+    padding: 3px 9px; /* 12px*0.8=9.6px; 24px*0.8=19.2px */
+    font-size: 13px; /* 16px * 0.8 = 12.8px -> 13px */
+    font-family: var(--font-text);
+    border-radius: 6px; /* 8px * 0.8 = 6.4px -> 6px */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: var(--lightbeige);
+        color: var(--warmbrown);
+        box-shadow: 0 0 8px var(--warmbrown); /* 10px * 0.8 = 8px */
+    }
+}
+
+
+/* Estilos de Exibição dos Comentários */
+.card-comentario {
+    background-color: rgba(80, 80, 80, 0.3);
+    border-left: 4px solid var(--antiquegold); /* 5px * 0.8 = 4px */
+    padding: 4px; /* 20px * 0.8 = 16px */
+    margin-bottom: 8px; /* 20px * 0.8 = 16px */
+    border-radius: 6px; /* 8px * 0.8 = 6.4px -> 6px */
+    position: relative; 
+    
+    strong {
+        font-size: 0.88rem; /* 1.1rem * 0.8 = 0.88rem */
+        color: var(--antiquegold); 
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    small {
+        font-size: 0.68rem; /* 0.85rem * 0.8 = 0.68rem */
+        color: var(--warmbrown);
+        margin-left: 8px; /* 10px * 0.8 = 8px */
+    }
+
+    .texto-comentario {
+        margin-top: 8px; /* 10px * 0.8 = 8px */
+        font-size: 0.8rem; /* Redução para 0.8rem */
+        line-height: 1.5; /* Mantido para legibilidade */
+        padding-right: 20px; /* 80px * 0.8 = 64px */
+        word-break: break-all
+    }
+
+}
+
+/* Estilos de Carregamento e Sem Comentários */
+p[ngIf="isLoading"] {
+    color: var(--antiquegold);
+    font-size: 0.8rem;
+    padding: 8px;
+}
+
+p[ngIf="!isLoading && comentarios.length === 0"] {
+    color: var(--lightbeige);
+    font-size: 0.8rem;
+    padding: 16px;
+}
+
+@media (max-width: 575.98px) {
+    .comentario-container {
+        padding: 12px; /* 15px * 0.8 = 12px */
+        margin: 16px auto; /* 20px * 0.8 = 16px */
+    }
+    
+    .card-comentario {
+        .texto-comentario {
+            padding-right: 0; 
+        }
+
+        .btn-excluir {
+            position: static; 
+            display: block;
+            width: 100%;
+            margin-top: 12px; /* 15px * 0.8 = 12px */
+            padding: 8px; /* 10px * 0.8 = 8px */
+        }
+    }
+}

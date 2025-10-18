@@ -4,6 +4,7 @@ import { PreviewComponent } from "../preview/preview.component";
 import { QuizbuttonComponent } from "../../components/quizbutton/quizbutton.component";
 import { SinopseComponent } from '../../components/sinopse/sinopse.component';
 import { CommonModule } from '@angular/common';
+import { ComentarioComponent } from "../../components/comentario/comentario.component";
 
 interface Reino {
   titulo: string;
@@ -14,7 +15,7 @@ interface Reino {
 
 @Component({
   selector: 'app-home',
-imports: [CardsComponent, PreviewComponent, QuizbuttonComponent, SinopseComponent, CommonModule],
+imports: [CardsComponent, PreviewComponent, QuizbuttonComponent, SinopseComponent, CommonModule, ComentarioComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

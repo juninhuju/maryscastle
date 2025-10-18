@@ -1,42 +1,57 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      
-      <button 
-        class="navbar-toggler" 
-        type="button" 
-        (click)="isMenuCollapsed = !isMenuCollapsed" 
-        [attr.aria-expanded]="!isMenuCollapsed" 
-        aria-controls="navbarNavAltMarkup"
-        title="Alternar Menu">
-        
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-lg header-custom">
+  <div class="container-fluid">
+    <a class="nav-link text-lightbeige" routerLink="/" (click)="collapseMenu()">Home</a>
 
-      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        
-        <div class="navbar-nav me-auto mb-2 mb-lg-0">
-          <a class="nav-item nav-link active" href="#" (click)="isMenuCollapsed = true">Home</a>
-          <a class="nav-item nav-link" href="/downloads" (click)="isMenuCollapsed = true">Download</a>
-          <a class="nav-item nav-link" routerLink="/carousel" (click)="isMenuCollapsed = true">Imagens</a>
-          <a class="nav-item nav-link" routerLink="/author" (click)="isMenuCollapsed = true">Autor</a>
-        </div>
-        
-        </div>
-      
-      <div class="navbar-nav d-flex align-items-center flex-row" id="controle"> 
-          
-          <div class="audio-wrapper">
-            <audio controls class="audio-control">
-              <source src="magoa.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-            <div class="me-lg-3">
-            <a class="nav-item nav-link" id="comprar" href="https://fantasticoseditora.com.br/" target="_blank" rel="noopener noreferrer">Comprar</a> 
-          </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div
+      [ngbCollapse]="isMenuCollapsed"
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-lightbeige" href="/downloads" (click)="collapseMenu()">Download</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-lightbeige" routerLink="/carousel" (click)="collapseMenu()">Imagens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-lightbeige" routerLink="/author" (click)="collapseMenu()">Autor</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a
+            id="comprar"
+            class="btn btn-comprar"
+            href="https://fantasticoseditora.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="collapseMenu()"
+          >
+            Comprar
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center">
+        <div class="audio-wrapper me-3">
+          <audio controls class="audio-player">
+            <source src="magoa.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+        </div>
       </div>
-
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

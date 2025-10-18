@@ -5,6 +5,18 @@
 @if (reinoFinal === '') {
   <form #questionarioForm id="questionario" (submit)="calcular($event)">
     
+    <!-- MENSAGEM DE ERRO MOVIDA PARA O TOPO DO FORMULÁRIO -->
+    @if (erroValidacao) {
+        <div class="error-message">
+            <p>Por favor, responda a todas as perguntas antes de enviar:</p>
+            <ul>
+                @for (q of questoesFaltando; track q) {
+                    <li>Questão {{ q }}</li>
+                }
+            </ul>
+        </div>
+    }
+
     <fieldset name="q1">
       <legend>1. Você está em uma festa. Qual é o seu papel natural?</legend>
       <label><input type="radio" name="q1" value="persuasao-estetica" required> A. O diplomata que garante que todos estejam felizes e engajados.</label><br>
@@ -111,23 +123,51 @@
 @if (reinoFinal !== '') {
   <div class="resultado-container">
     <h2>Resultado da Afinidade</h2>
-    
-    <h3 class="reino-titulo-dramatico" [ngClass]="'cor-' + reinoFinal">{{ getReinoDescricao(reinoFinal).titulo }}</h3>  
-    <img [src]="REINOS_IMAGENS[reinoFinal]" alt="Guardião do Reino" class="img-guardiao">
 
-    <div class="descricao-personalidade">
-      <p>{{ getReinoDescricao(reinoFinal).texto }}</p>
+    <div class="resultadoredes">
+      
+      <h3 class="reino-titulo-dramatico" [ngClass]="'cor-' + reinoFinal">{{ getReinoDescricao(reinoFinal).titulo }}</h3> 
+      <img [src]="REINOS_IMAGENS[reinoFinal]" alt="Guardião do Reino" class="img-guardiao">
+
+      <div class="descricao-personalidade">
+        <p>{{ getReinoDescricao(reinoFinal).texto }}</p>
+      </div>
+
+      <div id="texto-para-copiar" style="position: absolute; left: -9999px;">
+        OS REINOS CHAMAM: A QUAL VOCÊ RESPONDEU?
+        Meu resultado é: {{ getReinoDescricao(reinoFinal).titulo }}
+        {{ getReinoDescricao(reinoFinal).texto }}
+        Faça o teste e descubra qual Reino te chama! http://livroocastelodasmarias.netlify.app/quiz/
+      </div>
+
+    </div>
+    
+    <div class="compartilhar-container">
+      <h4>Compartilhe seu Reino!</h4>
+      <div class="share-buttons-group">
+        <button type="button" class="btn-compartilhar copy" (click)="copiarResultado()">
+          <i class="fas fa-copy"></i> Copiar Resultado
+        </button>
+        <button type="button" class="btn-compartilhar twitter" (click)="compartilhar('twitter')">
+          <i class="fab fa-twitter"></i> Twitter/X
+        </button>
+        <button type="button" class="btn-compartilhar facebook" (click)="compartilhar('facebook')">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+        <button type="button" class="btn-compartilhar whatsapp" (click)="compartilhar('whatsapp')">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+      </div>
     </div>
 
     <p>Pontuações de Afinidade por Reino:</p>
-      <ul style="list-style: none; padding: 0;">
+      <ul>
         @for (result of resultadosFinais | keyvalue; track result.key) {
           <li class="afinidade-item" [ngClass]="'cor-' + result.key">
-            <span class="apelido-reino">{{ getReinoApelido(result.key) | uppercase }} / </span>
-            <strong> ({{ getReinoNomeCompleto(result.key) }}):</strong> {{ result.value.toFixed(2) }}
+            Reino - {{ result.key | uppercase }}: {{ result.value.toFixed(2) }}
           </li>
         }
       </ul>    
-    <button type="button" (click)="reiniciaCalculo()" class="btn-secondary" style="margin-top: 20px;">Fazer Novamente</button>
+    <button type="button" (click)="reiniciaCalculo()" class="btn-secondary">Fazer Novamente</button>
   </div>
 }
