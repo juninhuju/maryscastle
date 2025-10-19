@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Mantenha, usado no template (ngFor, etc.)
 import { FormsModule } from '@angular/forms'; // Mantenha, usado no template (ngModel)
-import { ComentarioService } from '../../comentario.service'; // Ajuste o caminho se necessário
+import { ComentarioService } from '../../services/comentario.service'; // Ajuste o caminho se necessário
 import { Comentario } from '../../models/comentario.model'; // Ajuste o caminho se necessário
 // 1. CORREÇÃO DO CAMINHO: Assumindo que parse.service.ts está em src/app/
 import { ParseService } from '../../parse.service'; 

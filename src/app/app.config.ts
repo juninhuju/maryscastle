@@ -1,8 +1,8 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http'; 
-import { routes } from './app.routes'; 
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http'; 
+import { routes } from './app.routes';
 
 
 export const appConfig: ApplicationConfig = {
@@ -18,9 +18,10 @@ export const appConfig: ApplicationConfig = {
       })
     ),
 
-    // 2. PROVIDERS GLOBAIS
-    // CORREÇÃO: Chamando provideHttpClient com a feature withFetch()
-    provideHttpClient(withFetch()), 
+    // 2. PROVIDERS HTTP (Corrigido: Inclui fetch e interceptor em uma única chamada)
+    provideHttpClient(
+      withFetch(), // Para usar a API fetch nativa (Recomendado no Angular 19+)
+    ), 
 
     // 3. PROVIDERS DE HYDRATION
     provideClientHydration(withEventReplay())

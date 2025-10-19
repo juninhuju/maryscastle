@@ -12,7 +12,9 @@ h3:hover {
   display: flex;
   justify-content: center;
   /* Espaçamento em cima e embaixo do contêiner da foto */
-  margin: 2rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .foto-autor img {
@@ -57,7 +59,7 @@ h3:hover {
 .descricao {
   padding: 15px;
   /* 'margin: 0;' já remove margens, mas o 'margin-bottom: 1rem;' é mantido se desejado */
-  margin: 0 0 1rem 0; 
+  margin: 2rem 1rem 2rem 10px; 
   font-size: 95%;
   
   /* CORREÇÃO 2 (Media Query): Alinha o texto no centro também em telas pequenas */
