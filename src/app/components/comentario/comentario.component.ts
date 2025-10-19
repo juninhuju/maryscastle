@@ -1,45 +1,61 @@
 // Caminho do arquivo: src/app/comentario/comentario.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Mantenha, usado no template (ngFor, etc.)
-import { FormsModule } from '@angular/forms'; // Mantenha, usado no template (ngModel)
-import { ComentarioService } from '../../services/comentario.service'; // Ajuste o caminho se necessário
-import { Comentario } from '../../models/comentario.model'; // Ajuste o caminho se necessário
-// 1. CORREÇÃO DO CAMINHO: Assumindo que parse.service.ts está em src/app/
+import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms'; 
+import { ComentarioService } from '../../services/comentario.service'; 
+import { Comentario } from '../../models/comentario.model'; 
 import { ParseService } from '../../parse.service'; 
+
+// Adicione os imports do Router e RxJS
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-comentario',
-  // 2. CORREÇÃO DO STANDALONE COMPONENT: Serviços NÃO vão em 'imports:'.
-  // Apenas CommonModule e FormsModule são necessários aqui para o template.
+  // Componentes Standalone precisam de seus módulos e a lógica de rota.
   imports: [CommonModule, FormsModule], 
   templateUrl: './comentario.component.html',
   styleUrl: './comentario.component.scss',
-  standalone: true // Se não estiver explícito, adicione, já que você está usando 'imports'
+  standalone: true 
 })
 export class ComentarioComponent implements OnInit {
   comentarios: Comentario[] = [];
   novoComentario = { nome: '', texto: '' };
   isLoading = false;
 
-  // 3. INJEÇÃO DO SERVIÇO: Adicionar o ParseService ao construtor
   constructor(
     private comentarioService: ComentarioService,
-    private parseService: ParseService // Injeção do ParseService
+    private parseService: ParseService,
+    private router: Router // Injeção do Router
   ) { }
 
   ngOnInit(): void {
+    // 1. Carregamento inicial (ao entrar na página pela primeira vez)
     this.carregarComentarios();
     this.loadData();
+    
+    // 2. CORREÇÃO: Lógica para recarregar a API quando o usuário volta para esta rota.
+    // Isso evita o problema de componente reutilizado (cache de rota).
+    this.router.events.pipe(
+      // Filtra apenas quando a navegação termina com sucesso
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // **Ajuste:** Defina o caminho correto para a sua página de comentários/home.
+      // Neste exemplo, verifica-se a rota raiz ('/') ou a rota 'home'.
+      if (event.urlAfterRedirects === '/' || event.urlAfterRedirects.startsWith('/home')) {
+        this.carregarComentarios(); // Recarrega os dados da API
+        console.log('Comentários Recarregados após evento de navegação para a Home/Rota.');
+      }
+    });
   }
 
   carregarComentarios(): void {
     this.isLoading = true;
     this.comentarioService.getComentarios().subscribe({
       next: (data) => {
-        // Ordena para exibir o mais recente primeiro, se desejar
+        // Ordena para exibir o mais recente primeiro
         this.comentarios = data.results.sort((a, b) => {
-          // Garante que ambos os objetos tenham createdAt para ordenação
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
         });
         this.isLoading = false;
@@ -78,7 +94,7 @@ export class ComentarioComponent implements OnInit {
     this.comentarioService.deleteComentario(objectId).subscribe({
       next: () => {
         alert('Comentário excluído com sucesso!');
-        // Remove o comentário da lista localmente (mais rápido que recarregar)
+        // Remove o comentário da lista localmente
         this.comentarios = this.comentarios.filter(c => c.objectId !== objectId);
       },
       error: (err) => {
@@ -95,7 +111,6 @@ export class ComentarioComponent implements OnInit {
       console.log('Dados do Parse (Teste):', data);
     } catch (error) {
       console.error('Erro ao carregar dados de teste do Parse:', error);
-      // Lidar com o erro de forma apropriada (por exemplo, exibir uma mensagem)
     }
   }
 }

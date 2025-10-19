@@ -1,5 +1,5 @@
-// Importa as variáveis globais (se não estiverem disponíveis via :root ou host)
-// Se as variáveis estiverem no seu style.scss, esta parte pode ser opcional.
+// Caminho do arquivo: src/app/comentario/comentario.component.scss
+
 :host {
     // Definindo as variáveis locais para garantir que estão disponíveis
     --blackabsolut: #1f1f1f;
@@ -13,37 +13,39 @@
     display: block; // Garante que o :host se comporta como um bloco
 }
 
-/* Estilo do Container Principal (Redução de 20% em todas as dimensões) */
+/* Estilo do Container Principal */
 .comentario-container {
-    max-width: 520px; /* 800px * 0.8 = 640px */
-    margin: 15px auto; /* 40px * 0.8 = 32px */
-    padding: 10px; /* 30px * 0.8 = 24px */
+    max-width: 520px; 
+    margin: 15px auto; 
+    padding: 10px; 
     
     // Fundo escuro sutilmente diferente do body, com borda dourada
     background-color: var(--blackabsolut); 
     border: 1px solid var(--antiquegold);
-    border-radius: 8px; /* 10px * 0.8 = 8px */
-    box-shadow: 0 0 12px rgba(var(--antiquegold), 0.5); /* 15px * 0.8 = 12px */
+    border-radius: 8px; 
+    
+    // CORREÇÃO: Usando a cor hexadecimal diretamente para a sombra
+    box-shadow: 0 0 12px var(--antiquegold); 
 
     h2, h3 {
         font-family: var(--font-title);
         color: var(--antiquegold);
         text-align: center;
         margin: 0 !important;
-        padding: 0 !important; /* 10px * 0.8 = 8px */
-        border-bottom: 1.6px solid var(--warmbrown); /* 2px * 0.8 = 1.6px */
-        text-shadow: 0.8px 0.8px 2.4px var(--golden); /* 1px*0.8=0.8px; 3px*0.8=2.4px */
-        font-size: 1.6rem; /* Ajuste para melhor leitura */
+        padding: 0 !important; 
+        border-bottom: 1.6px solid var(--warmbrown); 
+        text-shadow: 0.8px 0.8px 2.4px var(--golden); 
+        font-size: 1.6rem; 
     }
     
     p, small {
         font-family: var(--font-text);
         color: var(--lightbeige);
-        font-size: 0.8rem; /* Redução da fonte padrão */
+        font-size: 0.8rem; 
     }
 
     hr {
-        margin: 12px 0; /* 30px * 0.8 = 24px */
+        margin: 12px 0; 
         border: 0;
         border-top: 1px dashed var(--antiquegold);
     }
@@ -56,84 +58,89 @@
 
     input[type="text"],
     textarea {
-        padding: 10px; /* 12px * 0.8 = 9.6px -> 10px */
+        padding: 10px; 
         background-color: rgba(40, 40, 40, 0.9);
         color: var(--lightbeige);
         border: 1px solid var(--warmbrown);
-        border-radius: 3.2px; /* 4px * 0.8 = 3.2px */
+        border-radius: 3.2px; 
         font-family: var(--font-text);
-        font-size: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        font-size: 0.8rem; 
         width: 100%;
         box-sizing: border-box;
+        margin-bottom: 8px; /* Adicionado um margin para separar os campos */
 
         &:focus {
             border-color: var(--antiquegold);
             outline: none;
-            box-shadow: 0 0 4px var(--antiquegold); /* 5px * 0.8 = 4px */
+            box-shadow: 0 0 4px var(--antiquegold); 
         }
     }
 
     textarea {
         resize: vertical;
-        min-height: 96px; /* 120px * 0.8 = 96px */
+        min-height: 96px; 
     }
 
     button[type="submit"] {
-        @extend .btn-primary; // Reutiliza o estilo dramático do seu botão principal
+        // Como não temos o .btn-primary definido globalmente, definimos o estilo completo aqui
+        background-color: var(--warmbrown);
+        color: var(--lightbeige);
+        border: 1.6px solid var(--warmbrown); 
+        padding: 3px 9px; 
+        font-size: 13px; 
+        font-family: var(--font-text);
+        border-radius: 6px; 
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+
         align-self: flex-start; 
-        margin-top: 8px; /* 10px * 0.8 = 8px */
+        margin-top: 8px; 
+
+        &:hover {
+            background-color: var(--lightbeige);
+            color: var(--warmbrown);
+            box-shadow: 0 0 8px var(--warmbrown); 
+        }
     }
 }
-
-/* Estilos dos Botões (Redução de 20%) */
-.btn-primary {
-    background-color: var(--warmbrown);
-    color: var(--lightbeige);
-    border: 1.6px solid var(--warmbrown); /* 2px * 0.8 = 1.6px */
-    padding: 3px 9px; /* 12px*0.8=9.6px; 24px*0.8=19.2px */
-    font-size: 13px; /* 16px * 0.8 = 12.8px -> 13px */
-    font-family: var(--font-text);
-    border-radius: 6px; /* 8px * 0.8 = 6.4px -> 6px */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-
-    &:hover {
-        background-color: var(--lightbeige);
-        color: var(--warmbrown);
-        box-shadow: 0 0 8px var(--warmbrown); /* 10px * 0.8 = 8px */
-    }
-}
-
 
 /* Estilos de Exibição dos Comentários */
 .card-comentario {
     background-color: rgba(80, 80, 80, 0.3);
-    border-left: 4px solid var(--antiquegold); /* 5px * 0.8 = 4px */
-    padding: 4px; /* 20px * 0.8 = 16px */
-    margin-bottom: 16px; /* 20px * 0.8 = 16px */
-    border-radius: 6px; /* 8px * 0.8 = 6.4px -> 6px */
+    border-left: 4px solid var(--antiquegold); 
+    padding: 12px; /* Aumentado um pouco o padding interno */
+    margin-bottom: 16px; 
+    border-radius: 6px; 
     position: relative; 
     
     strong {
-        font-size: 0.88rem; /* 1.1rem * 0.8 = 0.88rem */
+        font-size: 0.88rem; 
         color: var(--antiquegold); 
         font-weight: bold;
         display: inline-block;
     }
 
     small {
-        font-size: 0.68rem; /* 0.85rem * 0.8 = 0.68rem */
+        font-size: 0.68rem; 
         color: var(--warmbrown);
-        margin-left: 8px; /* 10px * 0.8 = 8px */
+        margin-left: 8px; 
     }
 
     .texto-comentario {
-        margin: 0 0 0 20px;
-        font-size: 0.8rem; /* Redução para 0.8rem */
-        line-height: 1.5; /* Mantido para legibilidade */
-        padding-right: 20px; /* 80px * 0.8 = 64px */
-        word-break: break-all
+        // CORREÇÕES PARA JUSTIFICAÇÃO E QUEBRA DE PALAVRAS
+        text-align: justify; /* Garante o texto justificado */
+        
+        // ADIÇÃO DO PREFIXO VENDOR PARA COMPATIBILIDADE COM SAFARI/WEBKIT MAIS ANTIGOS
+        -webkit-hyphens: none; 
+        hyphens: none; /* Impede a hifenização automática (quebra no meio da palavra) */
+        
+        word-break: normal; /* Mantém a quebra apenas em espaços, não quebrando caracteres */
+
+        margin: 4px 0 0 0; /* Ajustado margin */
+        font-size: 0.8rem; 
+        line-height: 1.5; 
+        padding-right: 0; /* Removido padding-right desnecessário que estava em 64px */
     }
 
 }
@@ -143,12 +150,14 @@ p[ngIf="isLoading"] {
     color: var(--antiquegold);
     font-size: 0.8rem;
     padding: 8px;
+    text-align: center;
 }
 
 p[ngIf="!isLoading && comentarios.length === 0"] {
     color: var(--lightbeige);
     font-size: 0.8rem;
     padding: 16px;
+    text-align: center;
 }
 
 .nome {
@@ -158,21 +167,18 @@ p[ngIf="!isLoading && comentarios.length === 0"] {
 
 @media (max-width: 575.98px) {
     .comentario-container {
-        padding: 12px; /* 15px * 0.8 = 12px */
-        margin: 0 10px 0 10px;
+        padding: 12px; 
+        margin: 0 10px 30px 10px;
     }
     
     .card-comentario {
+        padding: 8px; /* Reduzindo um pouco em mobile */
+
         .texto-comentario {
             padding-right: 0; 
+            margin: 4px 0 0 0; 
         }
 
-        .btn-excluir {
-            position: static; 
-            display: block;
-            width: 100%;
-            margin-top: 12px; /* 15px * 0.8 = 12px */
-            padding: 8px; /* 10px * 0.8 = 8px */
-        }
+        /* Removendo .btn-excluir, pois não está no HTML fornecido */
     }
 }
