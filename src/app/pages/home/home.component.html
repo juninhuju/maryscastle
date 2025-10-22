@@ -1,16 +1,24 @@
 <div class="container-fluid">
 
-<h1>O Castelo das Marias</h1>
+    <h1>O Castelo das Marias</h1>
 
-<app-sinopse></app-sinopse>
+    <app-sinopse></app-sinopse>
 
-<app-cards [reinos]="reinos"></app-cards>
+    <app-cards [reinos]="reinos"></app-cards>
 
-<app-quizbutton></app-quizbutton>
+    <app-quizbutton></app-quizbutton>
 
-<app-preview></app-preview>
+    <app-preview></app-preview>
 
-<app-comentario></app-comentario>
+    <!-- 1. LOADING STATE: Mostra enquanto os dados estão sendo buscados -->
+    <div *ngIf="isLoadingComentarios" class="loading-state">
+        <p>Aguardando a chegada dos comentários...</p>
+    </div>
+
+    <!-- 2. COMENTÁRIOS: Só renderiza se NÃO estiver carregando E se os dados existirem -->
+    <div *ngIf="!isLoadingComentarios && comentariosData">
+        <!-- Passa a lista de comentários completa para o componente filho -->
+        <app-comentario [comentarios]="comentariosData"></app-comentario>
+    </div>
 
 </div>
-

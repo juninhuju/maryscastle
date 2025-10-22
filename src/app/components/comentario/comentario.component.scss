@@ -31,8 +31,6 @@
         font-family: var(--font-title);
         color: var(--antiquegold);
         text-align: center;
-        margin: 0 !important;
-        padding: 0 !important; 
         border-bottom: 1.6px solid var(--warmbrown); 
         text-shadow: 0.8px 0.8px 2.4px var(--golden); 
         font-size: 1.6rem; 
@@ -164,6 +162,29 @@ p[ngIf="!isLoading && comentarios.length === 0"] {
     padding: 0;
     margin: 0;
 }
+
+/* Botão de Expandir Comentários */
+.btn-expandir {
+    background-color: var(--warmbrown);
+    color: var(--lightbeige);
+    border: 1.6px solid var(--warmbrown);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-family: var(--font-text);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 auto 12px auto; // Centraliza e dá espaçamento inferior
+
+    &:hover {
+        background-color: var(--lightbeige);
+        color: var(--warmbrown);
+        box-shadow: 0 0 8px var(--warmbrown);
+    }
+}
+
 
 @media (max-width: 575.98px) {
     .comentario-container {

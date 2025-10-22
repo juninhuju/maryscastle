@@ -1,39 +1,42 @@
 <div class="comentario-container">
-  <h2>Deixe seu Comentário</h2>
+  <h2>Deixe seu Comentário</h2>
 
-  <form (ngSubmit)="adicionarComentario()" class="form-comentario">
-    <input
-      type="text"
-      placeholder="Seu Nome"
-      [(ngModel)]="novoComentario.nome"
-      name="nome"
-      required
-    />
-    <textarea
-      placeholder="Seu Comentário"
-      [(ngModel)]="novoComentario.texto"
-      name="texto"
-      required
-    ></textarea>
-    <button type="submit">Enviar Comentário</button>
-  </form>
+  <form (ngSubmit)="adicionarComentario()" class="form-comentario">
+    <input
+      type="text"
+      placeholder="Seu Nome"
+      [(ngModel)]="novoComentario.nome"
+      name="nome"
+      required
+    />
+    <textarea
+      placeholder="Seu Comentário"
+      [(ngModel)]="novoComentario.texto"
+      name="texto"
+      required
+    ></textarea>
+    <button type="submit">
+      <span *ngIf="!isLoading">Enviar Comentário</span>
+      <span *ngIf="isLoading">Recarregando...</span>
+    </button>
+  </form>
 
-  <hr />
+  <hr />
 
-  <h3>Comentários Recentes</h3>
+  <h3>Comentários Recentes</h3>
 
-  <p *ngIf="isLoading">Carregando comentários...</p>
+  <p *ngIf="comentarios.length === 0 && !isLoading">
+    Seja o primeiro a comentar!
+  </p>
 
-  <p *ngIf="!isLoading && comentarios.length === 0">
-    Seja o primeiro a comentar!
-  </p>
+  <div *ngFor="let comentario of comentariosVisiveis" class="card-comentario">
+    <p class="nome">
+      <strong>{{ comentario.nome }}</strong>
+    </p>
+    <p class="texto-comentario">{{ comentario.texto }}</p>
+  </div>
 
-  <div *ngFor="let comentario of comentarios" class="card-comentario">
-    <p class="nome">
-      <strong>{{ comentario.nome }}</strong>
-      <!-- LINHA DO ID REMOVIDA AQUI -->
-    </p>
-    <p class="texto-comentario">{{ comentario.texto }}</p>
-
-  </div>
+  <button *ngIf="comentarios.length > 6" (click)="expandirComentarios()" class="btn-expandir">
+    {{ mostrarTodos ? 'Ver menos' : 'Ver mais' }}
+  </button>
 </div>
