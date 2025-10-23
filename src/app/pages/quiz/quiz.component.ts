@@ -1,20 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef, inject } from '@angular/core';
-import { CommonModule, KeyValuePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { CommonModule, KeyValuePipe, UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-// -------------------------------------------------------------------------
-// 1. Definição das Interfaces (Types)
-// -------------------------------------------------------------------------
-
 type PontuacoesAtributos = [
-  number, // 1. Estética
-  number, // 2. Persuasão
-  number, // 3. Decisão
-  number, // 4. Aventura
-  number, // 5. Consciência
-  number, // 6. Elemental
-  number, // 7. Disciplina
-  number  // 8. Profundidade
+  number, 
+  number,
+  number, 
+  number, 
+  number, 
+  number, 
+  number, 
+  number  
 ];
 
 type DNAReinos = {
@@ -25,10 +21,6 @@ type ResultadosAfinidade = {
   [reino: string]: number;
 };
 
-// -------------------------------------------------------------------------
-// 2. DNA dos Reinos (Pesos) e Descrições (Dados Estáticos)
-// -------------------------------------------------------------------------
-
 const dnaDosReinos: DNAReinos = {
   Lira:           [0.25, 0.25, 0.10, 0.05, 0.05, 0.05, 0.05, 0.15], // (Festeiro)
   Encruzilhada:   [0.05, 0.10, 0.25, 0.25, 0.10, 0.05, 0.10, 0.10], // (Guia)
@@ -36,7 +28,6 @@ const dnaDosReinos: DNAReinos = {
   Cemitério:      [0.05, 0.05, 0.15, 0.05, 0.15, 0.05, 0.25, 0.25]  // (Sombrio)
 };
 
-// Constante com as descrições de personalidade para cada Reino
 const REINOS_DESCRICOES: { [key: string]: { titulo: string, texto: string } } = {
   'Lira': {
       titulo: 'Sua Alma Chamou pelo Reino da Lira!',
@@ -56,26 +47,20 @@ const REINOS_DESCRICOES: { [key: string]: { titulo: string, texto: string } } = 
   }
 };
 
-// -------------------------------------------------------------------------
-// 3. Componente Angular Principal (QuizComponent)
-// -------------------------------------------------------------------------
-
 @Component({
-  selector: 'app-root', // Mantido como app-root para execução
+  selector: 'app-root', 
   standalone: true,
   imports: [CommonModule, KeyValuePipe, FormsModule, UpperCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush, 
-  templateUrl: './quiz.component.html', // APONTA PARA O ARQUIVO HTML SEPARADO
-  styleUrls: ['./quiz.component.scss'], // ADICIONADO: Aponta para o arquivo SCSS
+  templateUrl: './quiz.component.html', 
+  styleUrls: ['./quiz.component.scss'], 
 })
 export class QuizComponent implements OnInit { 
 
-  // Injeção de dependência moderna (resolve o erro NG0202)
   private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('questionarioForm') questionarioForm!: ElementRef<HTMLFormElement>;
   
-  // URL de destino fixa do quiz para compartilhamento
   private readonly QUIZ_URL = 'https://livroocastelodasmarias.netlify.app/quiz';
   
   public readonly REINOS_IMAGENS: { [key: string]: string } = {
@@ -97,7 +82,6 @@ export class QuizComponent implements OnInit {
     'Cemitério': 'Reino do Cemitério (Disciplina e Profundidade)',
   };
 
-  // Variáveis de estado do componente
   reinoFinal: string = '';
   pontuacoesDoLeitor: PontuacoesAtributos = [0, 0, 0, 0, 0, 0, 0, 0];
   resultadosFinais: ResultadosAfinidade = {};
@@ -124,9 +108,6 @@ export class QuizComponent implements OnInit {
     return match ? match[1] : reinoChave;
   }
 
-  /**
-   * Função para gerar e disparar o compartilhamento nas redes sociais.
-   */
   compartilhar(rede: 'twitter' | 'facebook' | 'whatsapp') {
     if (!this.reinoFinal) {
       console.error('Resultado ainda não disponível para compartilhamento.');
@@ -220,28 +201,23 @@ copiarResultado() {
     if (elemento) {
       const textoParaCopiar = elemento.innerText;
       
-      // Usa a API Clipboard (moderna e assíncrona)
       if (navigator.clipboard) {
         navigator.clipboard.writeText(textoParaCopiar).then(() => {
           alert('Resultado copiado com sucesso! Agora você pode colar no Facebook ou em qualquer lugar.');
         }).catch(err => {
           console.error('Erro ao copiar usando a API Clipboard: ', err);
-          // Tenta o método de fallback em caso de erro (navegadores antigos ou restrições)
           this.fallbackCopyTextToClipboard(textoParaCopiar);
         });
       } else {
-        // Método de fallback para navegadores sem suporte ao 'navigator.clipboard'
         this.fallbackCopyTextToClipboard(textoParaCopiar);
       }
     }
   }
 
-  // Função de fallback para cópia (método antigo e síncrono)
   private fallbackCopyTextToClipboard(text: string) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
     
-    // Evita que o teclado virtual apareça em dispositivos móveis
     textArea.style.position = "fixed";
     textArea.style.top = "0";
     textArea.style.left = "0";
@@ -262,9 +238,6 @@ copiarResultado() {
 
     document.body.removeChild(textArea);
   }
-  /**
-   * Função principal chamada ao enviar o formulário.
-   */
   calcular(event: Event): void {
     event.preventDefault(); 
     const form = event.target as HTMLFormElement;
@@ -284,10 +257,8 @@ copiarResultado() {
     if (this.questoesFaltando.length > 0) {
         this.erroValidacao = true; 
         console.error(`Faltam respostas nas questões: ${this.questoesFaltando.join(', ')}`);
-        // Força a atualização da view
         this.cdr.detectChanges(); 
         
-        // Rola a tela para o topo do formulário para o usuário ver o erro
         document.getElementById('questionario')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         return;
@@ -305,20 +276,16 @@ copiarResultado() {
     console.log('Reino final:', this.reinoFinal);
   }
 
-  /**
-   * Reseta o estado do componente e o formulário HTML.
-   */
   reiniciaCalculo(): void {
     this.reinoFinal = '';
     this.pontuacoesDoLeitor = [0, 0, 0, 0, 0, 0, 0, 0];
     this.resultadosFinais = {};
     this.erroValidacao = false; 
-    this.questoesFaltando = []; // Limpa lista de questões faltando
+    this.questoesFaltando = [];
     
     if (this.questionarioForm) {
       this.questionarioForm.nativeElement.reset(); 
     }
-    // Rola para o topo do quiz
     document.getElementById('questionario')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

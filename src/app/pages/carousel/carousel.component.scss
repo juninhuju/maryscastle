@@ -1,24 +1,12 @@
-/* Carrossel */
-
-/* --- Ajustes para o Contêiner da Imagem (Slide) --- */
-
 .carousel-item {
-    /* FORÇANDO 80% da altura da tela (80vh) para o slide. 
-       Usamos !important para anular possíveis estilos padrão do Ng-Bootstrap/Bootstrap. */
     min-height: 80vh !important; 
-    
- 
-    /* Garante o comportamento de bloco, mas flex pode ser necessário se houver conteúdo extra */
     display: block; 
 }
-
-/* --- Ajustes da Imagem (Crucial para preencher o contêiner de 80vh) --- */
 
 .imgCarousel {
     height: 400px;
     width: 400px;
     object-fit: cover; 
-    
     display: block;
     margin: 0 auto;
     border-radius: 10px;
@@ -49,26 +37,16 @@
     margin-bottom: 40px;
 }
 
-/* REMOVIDO: #carouselExampleFade não é usado no seu HTML com ngb-carousel. 
-   O contêiner do carrossel é o <ngb-carousel> ou seu pai, #carousel. */
 #carousel {
     margin: 40px 40px;
     text-align: center;
-    /* Se precisar centralizar o ngb-carousel dentro do #carousel: */
     margin-left: auto;
     margin-right: auto;
 }
-/* --- Ajustes de Responsividade (Media Query) --- */
 
-/* Reduz a altura do carrossel em dispositivos móveis (telas menores que 768px) */
 @media (max-width: 768px) {
     .carousel-item {
-        /* Ajuste para uma altura mais adequada em celulares (ex: 50% da altura da tela) */
         min-height: 50vh !important; 
     }
 }
-
-/* ---------------------------------------------------- */
-/* --- Seus estilos existentes (Ajustados/Corrigidos) --- */
-/* ---------------------------------------------------- */
 

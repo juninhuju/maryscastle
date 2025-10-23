@@ -19,13 +19,9 @@
 }
 
 #banner1, #banner2, .botao {
-    /* flex-grow: 1 (cresce), flex-shrink: 1 (encolhe), flex-basis: 30% (base da largura) */
-    /* Usamos 30% em vez de 33.33% para acomodar o gap de 30px de forma segura. */
     flex: 1 1 30%; 
-    min-width: 200px; /* Impede que os itens fiquem muito estreitos antes de quebrar (em telas maiores) */
+    min-width: 200px;
     height: auto; 
-    
-    /* Garante que o banner sempre ocupe o espaço disponível na proporção */
     box-sizing: border-box; 
 }
 
@@ -87,7 +83,7 @@
     }
     #capa {
     width: 100%; 
-    max-width: 300px; /* Define o tamanho máximo que a imagem pode ter */
+    max-width: 300px; 
     }
     #banner1, #banner2 {
         flex: 1 1 100%; 
@@ -100,8 +96,8 @@
 }
 @media (max-width: 808px) {
   .capitulo-layout {
-    flex-direction: column; /* Itens um abaixo do outro */
-    align-items: center; /* Opcional: Centraliza os itens na coluna */
-    width: 100%; /* Garante a largura total */
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
   }
 }

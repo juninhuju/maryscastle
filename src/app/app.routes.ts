@@ -5,10 +5,8 @@ import { LivroComponent } from './components/livro/livro.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { AuthorComponent } from './pages/author/author.component';
 import { DownloadComponent } from './pages/download/download.component';
-import { ComentarioComponent } from './components/comentario/comentario.component'; // Ajustado
 
 export const routes: Routes = [
-    // Rotas Públicas Principais
     {
         path: '',
         component: HomeComponent,
@@ -39,8 +37,6 @@ export const routes: Routes = [
         component: DownloadComponent,
         title: 'Recursos para Download' 
     },
-    
-    // Rotas dos Reinos (Lazy Loading)
     {
         path: 'cemiterio',
         loadComponent: () => import('./pages/kingdoms/cemiterio/cemiterio.component')
@@ -65,18 +61,6 @@ export const routes: Routes = [
                             .then(m => m.NaturalComponent),
         title: 'Natural'
     },
-    
-    // --- NOVAS ROTAS DE ADMINISTRAÇÃO ---
-    
-    // Rota de Login (Componente AdminLogin)
-    // Rota para o componente de Comentários (Opcional, se precisar de uma página dedicada)
-    {
-        path: 'comentarios',
-        component: ComentarioComponent,
-        title: 'Feedback dos Clientes'
-    },
-
-    // Catch-all (Redireciona qualquer rota não encontrada para a Home)
     {
         path: '**',
         redirectTo: '',

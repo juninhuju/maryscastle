@@ -5,7 +5,6 @@
 @if (reinoFinal === '') {
   <form #questionarioForm id="questionario" (submit)="calcular($event)">
     
-    <!-- MENSAGEM DE ERRO MOVIDA PARA O TOPO DO FORMULÁRIO -->
     @if (erroValidacao) {
         <div class="error-message">
             <p>Por favor, responda a todas as perguntas antes de enviar:</p>

@@ -10,14 +10,11 @@
 
     <app-preview></app-preview>
 
-    <!-- 1. LOADING STATE: Mostra enquanto os dados estão sendo buscados -->
     <div *ngIf="isLoadingComentarios" class="loading-state">
         <p>Aguardando a chegada dos comentários...</p>
     </div>
 
-    <!-- 2. COMENTÁRIOS: Só renderiza se NÃO estiver carregando E se os dados existirem -->
     <div *ngIf="!isLoadingComentarios && comentariosData">
-        <!-- Passa a lista de comentários completa para o componente filho -->
         <app-comentario [comentarios]="comentariosData"></app-comentario>
     </div>
 

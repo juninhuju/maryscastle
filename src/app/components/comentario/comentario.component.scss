@@ -1,7 +1,4 @@
-// Caminho do arquivo: src/app/comentario/comentario.component.scss
-
 :host {
-    // Definindo as variáveis locais para garantir que estão disponíveis
     --blackabsolut: #1f1f1f;
     --lightbeige: #F5F5DC;
     --warmbrown: #8B5E3C;
@@ -9,22 +6,16 @@
     --golden: #887400;
     --font-title: 'Georgia', serif;
     --font-text: 'Verdana', Geneva, sans-serif;
-    
-    display: block; // Garante que o :host se comporta como um bloco
+    display: block;
 }
 
-/* Estilo do Container Principal */
 .comentario-container {
     max-width: 520px; 
     margin: 15px auto; 
     padding: 10px; 
-    
-    // Fundo escuro sutilmente diferente do body, com borda dourada
     background-color: var(--blackabsolut); 
     border: 1px solid var(--antiquegold);
     border-radius: 8px; 
-    
-    // CORREÇÃO: Usando a cor hexadecimal diretamente para a sombra
     box-shadow: 0 0 12px var(--antiquegold); 
 
     h2, h3 {
@@ -49,7 +40,6 @@
     }
 }
 
-/* Estilo do Formulário de Criação */
 .form-comentario {
     display: flex;
     flex-direction: column;
@@ -65,7 +55,7 @@
         font-size: 0.8rem; 
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 8px; /* Adicionado um margin para separar os campos */
+        margin-bottom: 8px; 
 
         &:focus {
             border-color: var(--antiquegold);
@@ -80,7 +70,6 @@
     }
 
     button[type="submit"] {
-        // Como não temos o .btn-primary definido globalmente, definimos o estilo completo aqui
         background-color: var(--warmbrown);
         color: var(--lightbeige);
         border: 1.6px solid var(--warmbrown); 
@@ -103,11 +92,10 @@
     }
 }
 
-/* Estilos de Exibição dos Comentários */
 .card-comentario {
     background-color: rgba(80, 80, 80, 0.3);
     border-left: 4px solid var(--antiquegold); 
-    padding: 12px; /* Aumentado um pouco o padding interno */
+    padding: 12px; 
     margin-bottom: 16px; 
     border-radius: 6px; 
     position: relative; 
@@ -126,24 +114,18 @@
     }
 
     .texto-comentario {
-        // CORREÇÕES PARA JUSTIFICAÇÃO E QUEBRA DE PALAVRAS
-        text-align: justify; /* Garante o texto justificado */
-        
-        // ADIÇÃO DO PREFIXO VENDOR PARA COMPATIBILIDADE COM SAFARI/WEBKIT MAIS ANTIGOS
+        text-align: justify; 
         -webkit-hyphens: none; 
-        hyphens: none; /* Impede a hifenização automática (quebra no meio da palavra) */
-        
-        word-break: normal; /* Mantém a quebra apenas em espaços, não quebrando caracteres */
-
-        margin: 4px 0 0 0; /* Ajustado margin */
+        hyphens: none; 
+        word-break: normal; 
+        margin: 4px 0 0 0;
         font-size: 0.8rem; 
         line-height: 1.5; 
-        padding-right: 0; /* Removido padding-right desnecessário que estava em 64px */
+        padding-right: 0; 
     }
 
 }
 
-/* Estilos de Carregamento e Sem Comentários */
 p[ngIf="isLoading"] {
     color: var(--antiquegold);
     font-size: 0.8rem;
@@ -163,7 +145,6 @@ p[ngIf="!isLoading && comentarios.length === 0"] {
     margin: 0;
 }
 
-/* Botão de Expandir Comentários */
 .btn-expandir {
     background-color: var(--warmbrown);
     color: var(--lightbeige);
@@ -176,7 +157,7 @@ p[ngIf="!isLoading && comentarios.length === 0"] {
     transition: all 0.3s ease;
     text-transform: uppercase;
     display: block;
-    margin: 0 auto 12px auto; // Centraliza e dá espaçamento inferior
+    margin: 0 auto 12px auto; 
 
     &:hover {
         background-color: var(--lightbeige);
@@ -193,13 +174,11 @@ p[ngIf="!isLoading && comentarios.length === 0"] {
     }
     
     .card-comentario {
-        padding: 8px; /* Reduzindo um pouco em mobile */
+        padding: 8px;
 
         .texto-comentario {
             padding-right: 0; 
             margin: 4px 0 0 0; 
         }
-
-        /* Removendo .btn-excluir, pois não está no HTML fornecido */
     }
 }

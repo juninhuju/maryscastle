@@ -6,12 +6,9 @@ h3:hover {
   transition: text-shadow 0.3s ease-in-out;
 }
 
-/* --- Centraliza a foto --- */
 .foto-autor {
-  /* Centraliza o conteúdo (a imagem) horizontalmente */
   display: flex;
   justify-content: center;
-  /* Espaçamento em cima e embaixo do contêiner da foto */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -21,12 +18,11 @@ h3:hover {
   width: 100%;
   max-width: 250px;
   height: auto;
-  border: 3px solid var(--lightbeige); /* prata metálico */
+  border: 3px solid var(--lightbeige); 
   border-radius: 12px;
   box-shadow: 0 0 20px var(--warmbrown);
   filter: grayscale(30%) contrast(120%);
   transition: transform 0.5s ease;
-  /* ... (outras propriedades) ... */
 }
 
 .foto-autor img:hover {
@@ -34,35 +30,23 @@ h3:hover {
 }
 
 .descricao {
-  /* CORREÇÃO 1: Para remover margens laterais e centralizar o conteúdo, ajuste a largura. */
-  /* Removi o 'max-width: 90%;' e os 'margin-left: auto; margin-right: auto;' */
-  /* Se o contêiner pai (.container-fluid) não tiver padding, este bloco vai de ponta a ponta. */
   width: 100%;
-  margin: 0 0 2rem 0; /* Ajusta apenas a margem inferior, removendo as laterais */
-  
-  background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
+  margin: 0 0 2rem 0; 
+  background-color: rgba(80, 80, 80, 0.3); 
   padding: 3rem;
   border-radius: 8px;
-  border-left: 5px solid var(--warmbrown); /* vermelho profundo */
+  border-left: 5px solid var(--warmbrown);
   font-size: 1rem;
   line-height: 1.8;
-  
-  /* CORREÇÃO 2: Alinha o texto no centro */
   text-align: justify; 
-  
   color: var(--lightbeige);
 }
 
-/* O bloco .atributos foi removido por não estar no HTML. */
-/* O bloco .atributos foi removido por não estar no HTML. *//* Media query para telas menores (ex: tablets ou celulares) */
 @media (max-width: 768px) {
 .descricao {
   padding: 15px;
-  /* 'margin: 0;' já remove margens, mas o 'margin-bottom: 1rem;' é mantido se desejado */
   margin: 2rem 1rem 2rem 10px; 
   font-size: 95%;
-  
-  /* CORREÇÃO 2 (Media Query): Alinha o texto no centro também em telas pequenas */
   text-align: justify;  
   color: #ddd;
 }

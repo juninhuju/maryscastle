@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { CardsComponent } from "../../components/cards/cards.component";
 import { PreviewComponent } from "../preview/preview.component"; 
 import { QuizbuttonComponent } from "../../components/quizbutton/quizbutton.component"; 
 import { SinopseComponent } from '../../components/sinopse/sinopse.component'; 
 import { ComentarioComponent } from "../../components/comentario/comentario.component"; 
 import { ComentarioService } from '../../services/comentario.service';
-import { Comentario, ComentarioResponse } from '../../models/comentario.model'; 
+import { Comentario } from '../../models/comentario.model'; 
 
 interface Reino {
   titulo: string;
@@ -32,11 +31,9 @@ interface Reino {
 })
 export class HomeComponent implements OnInit {
 
-  // ESTADO DE DADOS E CARREGAMENTO
   comentariosData: Comentario[] | null = null; 
   isLoadingComentarios: boolean = true; 
   
-  // Injete o serviço de comentários, que lida com a API
   constructor(private comentarioService: ComentarioService) {}
 
   ngOnInit(): void {
@@ -46,20 +43,17 @@ export class HomeComponent implements OnInit {
   fetchComentarios() {
     this.isLoadingComentarios = true;
     
-    // Usa o serviço para obter os comentários
     this.comentarioService.getComentarios().subscribe({
       next: (response) => {
-        // Tipagem explícita para o sort
         this.comentariosData = response.results.sort((a: Comentario, b: Comentario) => 
              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       },
       error: (err) => {
         console.error('Erro ao carregar comentários:', err);
-        // Garante que o array existe (vazio) mesmo em caso de erro para o template não travar
         this.comentariosData = []; 
       },
       complete: () => {
-        this.isLoadingComentarios = false; // DESATIVA O LOADING
+        this.isLoadingComentarios = false; 
       }
     });
   }

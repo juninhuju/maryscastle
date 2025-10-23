@@ -1,4 +1,3 @@
-/* 🔥 Hover sombrio em títulos */
 h1:hover,
 h2:hover,
 h3:hover {
@@ -6,12 +5,11 @@ h3:hover {
   transition: text-shadow 0.3s ease-in-out;
 }
 
-/* 🧠 Revelação de texto com fundo cinza metálico */
 .descricao {
-  background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
+  background-color: rgba(80, 80, 80, 0.3); 
   padding: 2rem;
   border-radius: 8px;
-  border-left: 5px solid #a80000; /* vermelho profundo */
+  border-left: 5px solid #a80000;
   margin-bottom: 2rem;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -39,7 +37,7 @@ h3:hover {
   width: 100%;
   max-width: 350px;
   height: auto;
-  border: 3px solid #999; /* prata metálico */
+  border: 3px solid #999;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
   filter: grayscale(30%) contrast(120%);
@@ -52,12 +50,11 @@ h3:hover {
   transform: scale(1.05);
 }
 
-/* 🧭 Bloco de atributos */
 .atributos {
-  background-color: rgba(80, 80, 80, 0.3); /* cinza pedra translúcido */
+  background-color: rgba(80, 80, 80, 0.3); 
   padding: 2rem;
   border-radius: 8px;
-  border-left: 5px solid #a80000; /* vermelho profundo */
+  border-left: 5px solid #a80000; 
   position: relative;
   z-index: 1;
 }

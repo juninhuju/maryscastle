@@ -1,13 +1,10 @@
-// carousel.component.ts
-
 import { Component } from '@angular/core';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common'; 
 
-// Interface para estruturar os dados da imagem
 interface ImageSlide {
   id: number;
-  extension: string; // Ex: 'png', 'jpg', 'jpeg'
+  extension: string; 
   alt: string;
 }
 
@@ -20,11 +17,8 @@ interface ImageSlide {
 })
 export class CarouselComponent {
   
-  // 1. Defina o Caminho Base correto
-  // Se os arquivos estão em 'src/public/carrossel', o caminho público é '/carrossel'
   private readonly BASE_PATH: string = '/carrossel';
 
-  // 2. Lista completa das 25 imagens com suas extensões (mantida)
   public slides: ImageSlide[] = [
     { id: 1, extension: 'jpeg', alt: 'Imagem do Reino Cemitério 1' },
     { id: 2, extension: 'jpeg', alt: 'Imagem do Reino Cemitério 2' },
@@ -53,9 +47,7 @@ export class CarouselComponent {
     { id: 25, extension: 'jpeg', alt: 'Imagem do Reino Cemitério 25' }
   ];
 
-  // 3. Método para gerar o caminho correto
   public getImagePath(id: number, extension: string): string {
-    // Retorna '/carrossel/1.png' (Exemplo)
     return `${this.BASE_PATH}/${id}.${extension}`;
   }
 }

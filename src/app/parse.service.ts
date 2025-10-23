@@ -1,9 +1,6 @@
-// src/app/parse.service.ts
-
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-// Nota: Não precisamos do 'parse/node' aqui, pois o objetivo é pular a inicialização no servidor.
 let Parse: any = null;
 
 @Injectable({
@@ -16,10 +13,7 @@ export class ParseService {
   }
 
   private initializeParse() {
-    // Verifica se estamos no ambiente do navegador (client-side)
     if (isPlatformBrowser(this.platformId)) {
-      // Importa o Parse SDK de forma dinâmica, mas na prática, você deve usar a importação estática se o bundler for inteligente.
-      // Neste caso, vamos apenas garantir que a importação estática funcione, já que você usa o 'parse' instalado via npm.
       import('parse').then(ParseModule => {
           Parse = ParseModule.default;
 
@@ -39,11 +33,10 @@ export class ParseService {
     }
   }
   
-  // O método deve verificar se Parse foi inicializado antes de ser usado.
   async getTestData() {
     if (!Parse) {
         console.warn('Parse não inicializado. Rodando no servidor ou inicialização falhou.');
-        return []; // Retorna um array vazio ou lança um erro, se preferir
+        return []; 
     }
     const TestClass = Parse.Object.extend('TestClass');
     const query = new Parse.Query(TestClass);

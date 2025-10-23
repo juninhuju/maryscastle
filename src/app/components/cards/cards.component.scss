@@ -1,13 +1,12 @@
-/* Estilos para o Card Individual */
 * {
-    color: antiquewhite;
+  color: antiquewhite;
 }
 .container-fluid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* opcional: centraliza os cards */
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .card {
   width: 15rem;

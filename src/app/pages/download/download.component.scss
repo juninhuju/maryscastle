@@ -1,12 +1,10 @@
 :root {
-    /* Definições de cores base, ajustáveis */
-    --warmbrown: #8B4513; /* Marrom Quente */
-    --lightbeige: #F5F5DC; /* Bege Claro */
+    --warmbrown: #8B4513; 
+    --lightbeige: #F5F5DC; 
     --shadowcolor: rgba(0, 0, 0, 0.1);
 }
 
 .download-page {
-    /* Centraliza o conteúdo principal e adiciona padding */
     max-width: 1200px;
     margin: 0 auto;
     padding: 24px;
@@ -14,7 +12,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* Estilos de Seção de Download (PDF/Música) */
 .download-section {
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +26,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 10px var(--shadowcolor);
     width: 100%;
-    max-width: 300px; /* Limite em desktops */
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +48,6 @@
     margin-bottom: 10px;
 }
 
-/* Estilos de Botão Reutilizados (Seus estilos customizados) */
 .download-item .btn-primary,
 .download-item .btn-secondary {
     background-color: var(--warmbrown);
@@ -60,7 +56,7 @@
     text-decoration: none; 
     display: inline-flex; 
     padding: 10px 20px; 
-    border-radius: 8px; /* Ligeiramente mais arredondado */
+    border-radius: 8px; 
     cursor: pointer; 
     align-items: center; 
     justify-content: center;
@@ -83,7 +79,6 @@
     box-shadow: 0 0 0 3px rgba(var(--warmbrown), 0.5); 
 }
 
-/* Estilos de Galeria/Grid de Imagens */
 .gallery-section {
     margin-top: 40px;
     padding-top: 20px;
@@ -92,7 +87,6 @@
 
 .image-grid {
     display: grid;
-    /* Layout responsivo: 2 colunas no celular, 4 no tablet, 5 no desktop */
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
     gap: 15px;
     margin-top: 20px;
@@ -129,7 +123,6 @@
     box-shadow: 0 1px 3px var(--shadowcolor);
 }
 
-/* Media Queries para ajuste de layout */
 @media (min-width: 640px) {
     .image-grid {
         grid-template-columns: repeat(4, 1fr);
