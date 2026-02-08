@@ -14,26 +14,14 @@
 h1, h2 {
   text-align: center;
   color: var(--warmbrown);
-  margin-bottom: 30px;
+  padding: 20px 40px;
+  line-height: 55px;
 }
 
-table.sumario {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 40px;
-
-  td {
-    padding: 10px 15px;
-    border-bottom: 1px solid var(--warmbrown);
-    font-size: 16px;
-  }
-
-  td:last-child {
-    text-align: right;
-    color: var(--warmbrown);
-    font-weight: bold;
-  }
+span {
+  font-weight: 600;
 }
+
 
 .capitulo {
   p {

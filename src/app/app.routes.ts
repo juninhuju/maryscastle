@@ -5,6 +5,7 @@ import { LivroComponent } from './components/livro/livro.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { AuthorComponent } from './pages/author/author.component';
 import { DownloadComponent } from './pages/download/download.component';
+import { CadsPageComponent } from './components/cads-page/cads-page.component';
 
 export const routes: Routes = [
     {
@@ -60,6 +61,11 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/kingdoms/natural/natural.component')
                             .then(m => m.NaturalComponent),
         title: 'Natural'
+    },
+    {
+        path: 'reinos',
+        component: CadsPageComponent,
+        title: 'Reinos'
     },
     {
         path: '**',
